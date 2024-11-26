@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply text-gray-800;
+}
+
+/* Swiper styles */
+.swiper-button-next,
+.swiper-button-prev {
+  @apply text-indigo-600 dark:text-indigo-400;
+}
+
+.swiper-pagination-bullet {
+  @apply bg-indigo-600 dark:bg-indigo-400;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-indigo-600 dark:bg-indigo-400;
+}
