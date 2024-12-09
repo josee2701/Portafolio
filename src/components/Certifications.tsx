@@ -1,7 +1,6 @@
-import React from 'react';
 import { Award, Calendar, ExternalLink } from 'lucide-react';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -10,18 +9,18 @@ import 'swiper/css/pagination';
 
 const certifications = [
   {
-    title: "AWS Certified Solutions Architect",
-    organization: "Amazon Web Services",
-    date: "2023",
-    credentialUrl: "https://aws.amazon.com",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop"
+    title: "Azure Fundation Az-900",
+    organization: "Azure Microsoft Services",
+    date: "2024",
+    credentialUrl: "https://learn.microsoft.com/api/credentials/share/es-es/JoseFernandoCamposSanchez-6512/8E72554F03701228?sharingId=5235777B4AE99CFB",
+    image: "https://www.techielass.com/content/images/2021/03/microsoft-certified-azure-fundamentals.png"
   },
   {
-    title: "Professional Scrum Master I",
+    title: "Curso Profesional de Git y GitHub",
     organization: "Scrum.org",
     date: "2023",
-    credentialUrl: "https://scrum.org",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop"
+    credentialUrl: "https://platzi.com/p/desarrollador8/curso/1557-git-github/diploma/detalle/",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxCQDnOYkL4KEU1k9WN4pMVnhb2ACxZlWwmg&s"
   },
   {
     title: "Meta Frontend Developer",
@@ -44,13 +43,7 @@ const certifications = [
     credentialUrl: "https://microsoft.com",
     image: "https://images.unsplash.com/photo-1661961112835-ca6f5811d2af?w=600&h=400&fit=crop"
   },
-  {
-    title: "Certified Kubernetes Administrator",
-    organization: "Cloud Native Computing Foundation",
-    date: "2022",
-    credentialUrl: "https://kubernetes.io",
-    image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=600&h=400&fit=crop"
-  }
+  
 ];
 
 export default function Certifications() {
@@ -58,7 +51,7 @@ export default function Certifications() {
     <section id="certifications" className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-16">
-          Certifications & Achievements
+        Certificaciones y logros
         </h2>
         
         <Swiper
@@ -108,7 +101,7 @@ export default function Certifications() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300"
                   >
-                    <span>View Credential</span>
+                    <span>Ver credenciales</span>
                     <ExternalLink size={16} />
                   </a>
                 </div>

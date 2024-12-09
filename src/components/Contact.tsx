@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { Mail, MapPin, Phone } from 'lucide-react';
+import React, { useState } from 'react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -23,11 +23,11 @@ export default function Contact() {
   return (
     <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-16">Get In Touch</h2>
+        <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-16">Póngase en contacto</h2>
         
         <div className="grid md:grid-cols-2 gap-12">
           <div>
-            <h3 className="text-xl font-semibold mb-6 text-gray-800 dark:text-white">Contact Information</h3>
+            <h3 className="text-xl font-semibold mb-6 text-gray-800 dark:text-white">Información de contacto</h3>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center flex-shrink-0">
@@ -35,7 +35,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-800 dark:text-white">Email</h4>
-                  <p className="text-gray-600 dark:text-gray-400">contact@example.com</p>
+                  <p className="text-gray-600 dark:text-gray-400">j.camposs2701@gmail.com</p>
                 </div>
               </div>
               
@@ -44,8 +44,8 @@ export default function Contact() {
                   <Phone className="text-indigo-600 dark:text-indigo-400" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-gray-800 dark:text-white">Phone</h4>
-                  <p className="text-gray-600 dark:text-gray-400">+1 (555) 123-4567</p>
+                  <h4 className="font-medium text-gray-800 dark:text-white">Celular</h4>
+                  <p className="text-gray-600 dark:text-gray-400">+57 312 326 8867</p>
                 </div>
               </div>
               
@@ -54,8 +54,8 @@ export default function Contact() {
                   <MapPin className="text-indigo-600 dark:text-indigo-400" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-gray-800 dark:text-white">Location</h4>
-                  <p className="text-gray-600 dark:text-gray-400">San Francisco, CA</p>
+                  <h4 className="font-medium text-gray-800 dark:text-white">Ubicación</h4>
+                  <p className="text-gray-600 dark:text-gray-400">Bogotá D.C</p>
                 </div>
               </div>
             </div>
@@ -64,7 +64,7 @@ export default function Contact() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Name
+                Nombre
               </label>
               <input
                 type="text"
@@ -94,7 +94,7 @@ export default function Contact() {
             
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Message
+              Mensaje
               </label>
               <textarea
                 id="message"
@@ -111,7 +111,7 @@ export default function Contact() {
               type="submit"
               className="w-full bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors"
             >
-              Send Message
+              Enviar mensaje
             </button>
           </form>
         </div>

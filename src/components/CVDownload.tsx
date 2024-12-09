@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
 import { FileDown } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function CVDownload() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,7 +29,7 @@ export default function CVDownload() {
       {isOpen && (
         <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg py-2 z-50">
           <a
-            href="/cv/john-doe-cv-en.pdf"
+            href="/cv/Cv-English-.pdf"
             download
             className="flex items-center gap-2 px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
             onClick={() => setIsOpen(false)}
@@ -38,7 +38,7 @@ export default function CVDownload() {
             CV English
           </a>
           <a
-            href="/cv/john-doe-cv-es.pdf"
+            href="/cv/Cv-Español-.pdf"
             download
             className="flex items-center gap-2 px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
             onClick={() => setIsOpen(false)}
