@@ -16,32 +16,25 @@ const certifications = [
     image: "https://www.techielass.com/content/images/2021/03/microsoft-certified-azure-fundamentals.png"
   },
   {
+    title: "Python",
+    organization: "Talently.tech",
+    date: "2024",
+    credentialUrl: "https://talently.tech/certification/530022cd-6848-48e0-a711-8f7956efe778",
+    image: "https://i.blogs.es/1d8a5b/python1/1366_2000.jpg"
+  },
+  {
     title: "Curso Profesional de Git y GitHub",
-    organization: "Scrum.org",
+    organization: "Platzi.com",
     date: "2023",
     credentialUrl: "https://platzi.com/p/desarrollador8/curso/1557-git-github/diploma/detalle/",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxCQDnOYkL4KEU1k9WN4pMVnhb2ACxZlWwmg&s"
   },
   {
-    title: "Meta Frontend Developer",
-    organization: "Meta",
-    date: "2022",
-    credentialUrl: "https://coursera.org",
-    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&h=400&fit=crop"
-  },
-  {
-    title: "Google Cloud Architect",
-    organization: "Google Cloud",
+    title: "Django Intermedio",
+    organization: "Platzi.com",
     date: "2023",
-    credentialUrl: "https://cloud.google.com",
-    image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&h=400&fit=crop"
-  },
-  {
-    title: "Azure DevOps Engineer Expert",
-    organization: "Microsoft",
-    date: "2023",
-    credentialUrl: "https://microsoft.com",
-    image: "https://images.unsplash.com/photo-1661961112835-ca6f5811d2af?w=600&h=400&fit=crop"
+    credentialUrl: "https://platzi.com/p/desarrollador8/curso/2728-django-intermedio/diploma/detalle/",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUSJgC5_Bxs5jDeL_RSCUS-JqMKtkFU9ei_Q&s"
   },
   
 ];

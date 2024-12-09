@@ -4,13 +4,47 @@ import React, { useState } from 'react';
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
+    apellido: '',
     email: '',
-    message: ''
+    phone: '',
+    message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [responseMessage, setResponseMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
+    setIsSubmitting(true);
+    setResponseMessage('');
+
+    try {
+      const response = await fetch('https://backend-yw41.onrender.com/from_contact/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setResponseMessage('¡Mensaje enviado exitosamente!');
+        setFormData({
+          name: '',
+          apellido: '',
+          email: '',
+          phone: '',
+          message: '',
+        });
+      } else {
+        const errorData = await response.json();
+        setResponseMessage(`Error: ${errorData.message || 'No se pudo enviar el mensaje.'}`);
+      }
+    } catch (error) {
+      setResponseMessage('Error de red: No se pudo conectar con el servidor.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -76,7 +110,34 @@ export default function Contact() {
                 required
               />
             </div>
-            
+            <div>
+              <label htmlFor="apellido" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                Apellido
+              </label>
+              <input
+                type="text"
+                id="apellido"
+                name="apellido"
+                value={formData.apellido}
+                onChange={handleChange}
+                className="w-full px-4 py-2 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-transparent dark:text-white"
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                Celular o Telefono
+              </label>
+              <input
+                type="number"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                className="w-full px-4 py-2 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-transparent dark:text-white"
+                required
+              />
+            </div>
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Email
