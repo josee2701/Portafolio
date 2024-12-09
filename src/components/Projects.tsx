@@ -1,7 +1,6 @@
-import React from 'react';
 import { ExternalLink, Github } from 'lucide-react';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -10,60 +9,44 @@ import 'swiper/css/pagination';
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "A full-featured e-commerce platform built with React, Node.js, and MongoDB",
-    image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=600&h=400&fit=crop",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com"
+    title: "Plataforma De E-Commerce",
+    description: "Una plataforma de e-commerce para gestionar una pequeña empresa: subir productos, mantener stock y validar ventas. Desarrollada en Django con una arquitectura monolítica, todo el control se realiza a través de esta tecnología.",
+    image: "/Gallery/Tienda.png",
+    technologies: ["Python","Django","Html","JavaScrip","Pythonanywhere"],
+    githubUrl: "https://github.com/josee2701/Django_Class",
+    liveUrl: "https://josee270114.pythonanywhere.com/"
   },
   {
-    title: "Task Management App",
-    description: "A collaborative task management application with real-time updates",
-    image: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=600&h=400&fit=crop",
-    technologies: ["Vue.js", "Firebase", "Tailwind CSS"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com"
+    title: "Plataforma de Rastreo GPS",
+    description: "Plataforma monolítica basada en Django para rastreo GPS y APIs interactivas, con CSRF para seguridad, MySQL con procedimientos almacenados, empaquetada con Docker y desplegada en Kubernetes.",
+    image: "/Gallery/NP.png",
+    technologies: ["Python","Django","Redis","JavaScrip","Docker","Kubernetes","Azure"],
+    liveUrl: "https://gpsmobile.pro/es/login/"
   },
   {
-    title: "Social Media Dashboard",
-    description: "Analytics dashboard for social media management and monitoring",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-    technologies: ["React", "D3.js", "Node.js", "PostgreSQL"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com"
+    title: "Api's de Envio de Correo",
+    description: "API para envío de correos mediante POST, integrada con Gmail para confirmar al usuario y notificar al administrador. Registra toda la información en PostgreSQL.",
+    image: "/Gallery/Gmail.png",
+    technologies: ["Django", "Gmail", "Rest Api's","Render","PostgreSQL"],
+    githubUrl: "https://github.com/josee2701/backend",
+    liveUrl: "https://josee2701.github.io/contact"
   },
   {
-    title: "AI Image Generator",
-    description: "Web application that generates images using AI models",
-    image: "https://images.unsplash.com/photo-1547954575-855750c57bd3?w=600&h=400&fit=crop",
-    technologies: ["Python", "TensorFlow", "React", "FastAPI"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com"
+    title: "Portafolo CV Inicial",
+    description: "Portafolio desarrollado desde cero con React para comprender su estructura, componentes y flujos de trabajo. Integra una API en Django para el apartado de contacto y emplea Git Actions para automatizar el proceso de publicación.",
+    image: "/Gallery/image.png",
+    technologies: ["React", "GitHub Action", "Django"],
+    githubUrl: "https://github.com/josee2701/CV",
+    liveUrl: "https://josee2701.github.io/CV/"
   },
-  {
-    title: "Real-time Chat Application",
-    description: "Instant messaging platform with video calls and file sharing",
-    image: "https://images.unsplash.com/photo-1611746872915-64382b5c76da?w=600&h=400&fit=crop",
-    technologies: ["WebRTC", "Socket.io", "React", "Express"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com"
-  },
-  {
-    title: "Blockchain Explorer",
-    description: "Tool for exploring and analyzing blockchain transactions",
-    image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&h=400&fit=crop",
-    technologies: ["Web3.js", "React", "Node.js", "GraphQL"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com"
-  }
+  
 ];
 
 export default function Projects() {
   return (
     <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-16">Featured Projects</h2>
+        <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-16">Proyectos destacados</h2>
         
         <Swiper
           modules={[Navigation, Pagination]}

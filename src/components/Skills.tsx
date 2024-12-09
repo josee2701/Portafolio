@@ -1,37 +1,31 @@
-import React from 'react';
 import {
   Blocks, // React
-  BracesIcon, // JavaScript
-  FileCode2, // TypeScript
-  Palette, // Tailwind
-  Server, // Node.js
-  Database, // MongoDB
-  Table2, // PostgreSQL
-  GitBranch, // Git
-  Container, // Docker
-  Cloud, // AWS
-  Terminal, // Linux
-  Globe, // Next.js
-  Layers // Vue.js
+  BracesIcon, // Docker
+  Cloud, // Git
+  Container, // Node.js
+  Database, // JavaScript
+  FileCode2, // PostgreSQL
+  GitBranch, // Linux
+  Globe, // MongoDB
+  Table2, // AWS
+  Terminal
 } from 'lucide-react';
 
 const skills = {
+  "Backend": [
+    { name: "Python", icon: BracesIcon, color: "text-yellow-600" },
+    { name: "JavaScrip", icon: Globe, color: "text-gray-800 dark:text-gray-200" },
+    { name: "PostgreSQL", icon: Table2, color: "text-blue-400" },
+    { name: "MySQL", icon: Database, color: "text-green-500" }
+  ],
   "Frontend": [
     { name: "React", icon: Blocks, color: "text-blue-500" },
-    { name: "TypeScript", icon: FileCode2, color: "text-blue-600" },
-    { name: "Tailwind CSS", icon: Palette, color: "text-teal-500" },
-    { name: "Next.js", icon: Globe, color: "text-gray-800 dark:text-gray-200" }
-  ],
-  "Backend": [
-    { name: "Node.js", icon: Server, color: "text-green-600" },
-    { name: "Python", icon: BracesIcon, color: "text-yellow-600" },
-    { name: "PostgreSQL", icon: Table2, color: "text-blue-400" },
-    { name: "MongoDB", icon: Database, color: "text-green-500" }
+    { name: "JavaScrip", icon: FileCode2, color: "text-blue-600" },
   ],
   "Tools": [
     { name: "Git", icon: GitBranch, color: "text-orange-600" },
     { name: "Docker", icon: Container, color: "text-blue-500" },
-    { name: "AWS", icon: Cloud, color: "text-yellow-500" },
+    { name: "Azure", icon: Cloud, color: "text-yellow-500" },
     { name: "Linux", icon: Terminal, color: "text-gray-800 dark:text-gray-200" }
   ]
 };
@@ -40,7 +34,7 @@ export default function Skills() {
   return (
     <section id="skills" className="py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-16">Skills & Expertise</h2>
+        <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-16">Skills y Experiencia</h2>
         
         <div className="grid md:grid-cols-3 gap-12">
           {Object.entries(skills).map(([category, categorySkills]) => (
