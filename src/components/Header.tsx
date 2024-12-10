@@ -79,15 +79,15 @@ export default function Header() {
               <a href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
                  onClick={() => setIsMenuOpen(false)}>Contacto</a>
               <div className="flex space-x-4 pt-2 border-t dark:border-gray-800">
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" 
+                <a href="https://github.com/josee2701" target="_blank" rel="noopener noreferrer" 
                    className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
                   <Github size={20} />
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.linkedin.com/in/josee-py/" target="_blank" rel="noopener noreferrer"
                    className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
                   <Linkedin size={20} />
                 </a>
-                <a href="mailto:your.email@example.com"
+                <a href="mailto:j.camposs2701@gmail.com"
                    className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
                   <Mail size={20} />
                 </a>
