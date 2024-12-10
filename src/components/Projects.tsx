@@ -29,7 +29,7 @@ const projects = [
     image: "/Gallery/Gmail.png",
     technologies: ["Django", "Gmail", "Rest Api's","Render","PostgreSQL"],
     githubUrl: "https://github.com/josee2701/backend",
-    liveUrl: "https://josee2701.github.io/contact"
+    liveUrl: "https://backend-yw41.onrender.com/from_contact/"
   },
   {
     title: "Portafolo CV Inicial",

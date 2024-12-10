@@ -1,5 +1,7 @@
 import { Mail, MapPin, Phone } from 'lucide-react';
 import React, { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; // Importa los estilos
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -11,12 +13,14 @@ export default function Contact() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [responseMessage, setResponseMessage] = useState('');
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (hasSubmitted) return;
+
     setIsSubmitting(true);
-    setResponseMessage('');
 
     try {
       const response = await fetch('https://backend-yw41.onrender.com/from_contact/', {
@@ -28,7 +32,15 @@ export default function Contact() {
       });
 
       if (response.ok) {
-        setResponseMessage('¡Mensaje enviado exitosamente!');
+        toast.success('¡El mensaje se ha enviado correctamente!', {
+          position: 'top-right',
+          autoClose: 3000, // Cierra automáticamente después de 3 segundos
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+
         setFormData({
           name: '',
           apellido: '',
@@ -36,12 +48,28 @@ export default function Contact() {
           phone: '',
           message: '',
         });
+
+        setHasSubmitted(true);
       } else {
         const errorData = await response.json();
-        setResponseMessage(`Error: ${errorData.message || 'No se pudo enviar el mensaje.'}`);
+        toast.error(`Error: ${errorData.message || 'No se pudo enviar el mensaje.'}`, {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
       }
     } catch (error) {
-      setResponseMessage('Error de red: No se pudo conectar con el servidor.');
+      toast.error('Error de red: No se pudo conectar con el servidor.', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -50,7 +78,7 @@ export default function Contact() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -58,7 +86,7 @@ export default function Contact() {
     <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-16">Póngase en contacto</h2>
-        
+
         <div className="grid md:grid-cols-2 gap-12">
           <div>
             <h3 className="text-xl font-semibold mb-6 text-gray-800 dark:text-white">Información de contacto</h3>
@@ -72,7 +100,6 @@ export default function Contact() {
                   <p className="text-gray-600 dark:text-gray-400">j.camposs2701@gmail.com</p>
                 </div>
               </div>
-              
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center flex-shrink-0">
                   <Phone className="text-indigo-600 dark:text-indigo-400" />
@@ -82,7 +109,6 @@ export default function Contact() {
                   <p className="text-gray-600 dark:text-gray-400">+57 312 326 8867</p>
                 </div>
               </div>
-              
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center flex-shrink-0">
                   <MapPin className="text-indigo-600 dark:text-indigo-400" />
@@ -126,7 +152,7 @@ export default function Contact() {
             </div>
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Celular o Telefono
+                Celular o Teléfono
               </label>
               <input
                 type="number"
@@ -152,10 +178,9 @@ export default function Contact() {
                 required
               />
             </div>
-            
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Mensaje
+                Mensaje
               </label>
               <textarea
                 id="message"
@@ -167,16 +192,19 @@ export default function Contact() {
                 required
               ></textarea>
             </div>
-            
             <button
               type="submit"
               className="w-full bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors"
+              disabled={isSubmitting || hasSubmitted}
             >
-              Enviar mensaje
+              {isSubmitting ? 'Enviando...' : hasSubmitted ? 'Mensaje enviado' : 'Enviar mensaje'}
             </button>
           </form>
         </div>
       </div>
+
+      {/* Contenedor de Toast */}
+      <ToastContainer />
     </section>
   );
 }
