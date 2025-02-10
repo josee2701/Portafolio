@@ -17,13 +17,6 @@ const projects = [
     liveUrl: "https://josee270114.pythonanywhere.com/"
   },
   {
-    title: "Plataforma de Rastreo GPS",
-    description: "Plataforma monolítica basada en Django para rastreo GPS y APIs interactivas, con CSRF para seguridad, MySQL con procedimientos almacenados, empaquetada con Docker y desplegada en Kubernetes.",
-    image: "/Gallery/NP.png",
-    technologies: ["Python","Django","Redis","JavaScrip","Docker","Kubernetes","Azure"],
-    liveUrl: "https://gpsmobile.pro/es/login/"
-  },
-  {
     title: "Api's de Envio de Correo",
     description: "API para envío de correos mediante POST, integrada con Gmail para confirmar al usuario y notificar al administrador. Registra toda la información en PostgreSQL.",
     image: "/Gallery/Gmail.png",
