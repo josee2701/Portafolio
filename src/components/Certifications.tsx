@@ -9,6 +9,13 @@ import 'swiper/css/pagination';
 
 const certifications = [
   {
+    title: "Django",
+    organization: "Platzi.com",
+    date: "2025",
+    credentialUrl: "https://platzi.com/p/desarrollador8/curso/9574-course/diploma/detalle/",
+    image: "https://1000marcas.net/wp-content/uploads/2021/06/Django-Logo.png"
+  },
+  {
     title: "Azure Fundation Az-900",
     organization: "Azure Microsoft Services",
     date: "2024",
@@ -29,13 +36,7 @@ const certifications = [
     credentialUrl: "https://platzi.com/p/desarrollador8/curso/1557-git-github/diploma/detalle/",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxCQDnOYkL4KEU1k9WN4pMVnhb2ACxZlWwmg&s"
   },
-  {
-    title: "Django Intermedio",
-    organization: "Platzi.com",
-    date: "2023",
-    credentialUrl: "https://platzi.com/p/desarrollador8/curso/2728-django-intermedio/diploma/detalle/",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUSJgC5_Bxs5jDeL_RSCUS-JqMKtkFU9ei_Q&s"
-  },
+  
   
 ];
 
