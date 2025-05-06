@@ -23,6 +23,20 @@ const certifications = [
     image: "https://storage.caktusgroup.com/media/blog-images/drf-logo2.png"
   },
   {
+    title: "Auditor Interno ISO 9001:2015 - Sistema de Gestión de la Calidad",
+    organization: "SGS",
+    date: "2025",
+    credentialUrl: "https://learning.sgs.com/lmt/!clmscertificate.prVerify?site=sgsssc&in_region=co&in_token=MkQyODM1RDRDRUFDMjZEMjU3MzYxNEU3M0I4RkNFMjI5NTZFRUE4NEZBQ0EzMUNCMjQ4MzQ5Mzg1RTZENUU3RkY0N0RBNTIyMzg4M0NGMUU=",
+    image: "https://c0.klipartz.com/pngpicture/987/451/gratis-png-logotipo-organizacion-certificacion-iso-9001-iso-9000-sgs-logo-iso-9001-thumbnail.png"
+  },
+  {
+    title: "Gerencia de Proyectos bajo el enfoque del PMI®",
+    organization: "Fundación Universitaria Los Libertadores",
+    date: "2025",
+    credentialUrl: "https://www.acreditta.com/credential/02147c0c-ed60-409d-8de3-16230d793c52?utm_source=linkedin_profile&resource_type=badge&resource=02147c0c-ed60-409d-8de3-16230d793c52",
+    image: "https://images.credly.com/images/c8bcf967-5cd7-498a-97ee-da1390c12854/insignias_digitales_PMI.png"
+  },
+  {
     title: "Azure Fundation Az-900",
     organization: "Azure Microsoft Services",
     date: "2024",
