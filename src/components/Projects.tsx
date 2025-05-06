@@ -17,11 +17,11 @@ const projects = [
     liveUrl: "https://josee270114.pythonanywhere.com/"
   },
   {
-    title: "Api's de Envio de Correo",
+    title: "“Envío de Correos” con Django, DRF y FastAPI",
     description: "API para envío de correos mediante POST, integrada con Gmail para confirmar al usuario y notificar al administrador. Registra toda la información en PostgreSQL.",
-    image: "/Gallery/Gmail.png",
+    image: "/Gallery/django-fasapi-gmail.png",
     technologies: ["Django", "Gmail", "Rest Api's","Render","PostgreSQL"],
-    githubUrl: "https://github.com/josee2701/backend",
+    githubUrl: "https://github.com/josee2701/Envio-Correos",
     liveUrl: "https://backend-yw41.onrender.com/from_contact/"
   },
   {
