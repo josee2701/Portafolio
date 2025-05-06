@@ -16,6 +16,13 @@ const certifications = [
     image: "https://1000marcas.net/wp-content/uploads/2021/06/Django-Logo.png"
   },
   {
+    title: "Django Rest Framework",
+    organization: "Platzi.com",
+    date: "2025",
+    credentialUrl: "https://platzi.com/p/desarrollador8/curso/10728-django-rest-framework/diploma/detalle/",
+    image: "https://storage.caktusgroup.com/media/blog-images/drf-logo2.png"
+  },
+  {
     title: "Azure Fundation Az-900",
     organization: "Azure Microsoft Services",
     date: "2024",
