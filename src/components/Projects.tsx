@@ -60,11 +60,11 @@ export default function Projects() {
           {projects.map((project, index) => (
             <SwiperSlide key={index}>
               <div className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg h-full">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover"
-                />
+              <img
+                src={project.image}
+                alt={project.title}
+                className="max-w-full max-h-full object-contain"
+              />
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">{project.title}</h3>
                   <p className="text-gray-600 dark:text-gray-400 mb-4">{project.description}</p>
