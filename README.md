@@ -32,7 +32,7 @@ Guía paso a paso para instalar y ejecutar el proyecto localmente:
    ```
 4. Inicia el servidor de desarrollo:
    ```bash
-   npm start
+   npm run dev
    ```
 
 ### 🌐 Demo

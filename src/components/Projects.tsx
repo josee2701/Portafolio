@@ -1,8 +1,8 @@
 import { ExternalLink, Github } from 'lucide-react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { motion } from 'framer-motion';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -10,100 +10,131 @@ import 'swiper/css/pagination';
 const projects = [
   {
     title: "Plataforma De E-Commerce",
-    description: "Una plataforma de e-commerce para gestionar una pequeña empresa: subir productos, mantener stock y validar ventas. Desarrollada en Django con una arquitectura monolítica, todo el control se realiza a través de esta tecnología.",
+    description: "Plataforma para gestionar una pequeña empresa: subir productos, mantener stock y validar ventas. Desarrollada en Django con arquitectura monolítica.",
     image: "/Gallery/Tienda.png",
-    technologies: ["Python","Django","Html","JavaScrip","Pythonanywhere"],
+    technologies: ["Python", "Django", "HTML", "JavaScript", "Pythonanywhere"],
     githubUrl: "https://github.com/josee2701/Django_Class",
-    liveUrl: "https://josee270114.pythonanywhere.com/"
+    liveUrl: "https://josee270114.pythonanywhere.com/",
   },
   {
-    title: "“Envío de Correos” con Django, DRF y FastAPI",
-    description: "API para envío de correos mediante POST, integrada con Gmail para confirmar al usuario y notificar al administrador. Registra toda la información en PostgreSQL.",
+    title: "Envío de Correos con Django, DRF y FastAPI",
+    description: "API para envío de correos mediante POST, integrada con Gmail para confirmar al usuario y notificar al administrador. Registra información en PostgreSQL.",
     image: "/Gallery/django-fasapi-gmail.png",
-    technologies: ["Django", "Gmail", "Rest Api's","Render","PostgreSQL"],
+    technologies: ["Django", "Gmail", "REST APIs", "Render", "PostgreSQL"],
     githubUrl: "https://github.com/josee2701/Envio-Correos",
-    liveUrl: "https://backend-yw41.onrender.com/from_contact/"
+    liveUrl: "https://backend-yw41.onrender.com/from_contact/",
   },
   {
-    title: "Portafolo CV Inicial",
-    description: "Portafolio desarrollado desde cero con React para comprender su estructura, componentes y flujos de trabajo. Integra una API en Django para el apartado de contacto y emplea Git Actions para automatizar el proceso de publicación.",
+    title: "Portafolio CV Inicial",
+    description: "Portafolio desarrollado desde cero con React para comprender su estructura, componentes y flujos de trabajo. Integra una API en Django y GitHub Actions para publicación automática.",
     image: "/Gallery/image.png",
-    technologies: ["React", "GitHub Action", "Django"],
+    technologies: ["React", "GitHub Actions", "Django"],
     githubUrl: "https://github.com/josee2701/CV",
-    liveUrl: "https://josee2701.github.io/CV/"
+    liveUrl: "https://josee2701.github.io/CV/",
   },
-  
 ];
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <motion.section
+      id="projects"
+      className="py-20 bg-blue-50 dark:bg-gray-800"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-16">Proyectos destacados</h2>
-        
-        <Swiper
-          modules={[Navigation, Pagination]}
-          spaceBetween={30}
-          slidesPerView={1}
-          navigation
-          pagination={{ clickable: true }}
-          breakpoints={{
-            768: {
-              slidesPerView: 2,
-            },
-            1024: {
-              slidesPerView: 3,
-            },
-          }}
-          className="pb-12"
+        <motion.h2
+          className="text-3xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-sky-500 dark:from-blue-400 dark:to-sky-400"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
         >
-          {projects.map((project, index) => (
-            <SwiperSlide key={index}>
-              <div className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg h-full">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="max-w-full max-h-full object-contain"
-              />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">{project.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-sm rounded-full"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+          Proyectos destacados
+        </motion.h2>
+        <motion.div
+          className="w-20 h-1 bg-gradient-to-r from-blue-700 to-sky-500 dark:from-blue-400 dark:to-sky-400 mx-auto mb-16"
+          initial={{ opacity: 0, scaleX: 0 }}
+          whileInView={{ opacity: 1, scaleX: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+        />
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <Swiper
+            modules={[Navigation, Pagination]}
+            spaceBetween={24}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            breakpoints={{
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            className="pb-12"
+          >
+            {projects.map((project, index) => (
+              <SwiperSlide key={index}>
+                <div className="bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 h-full flex flex-col">
+                  <div className="relative overflow-hidden h-48">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
                   </div>
-                  <div className="flex gap-4">
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-                    >
-                      <Github size={20} />
-                      Code
-                    </a>
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-                    >
-                      <ExternalLink size={20} />
-                      Live Demo
-                    </a>
+                  <div className="p-6 flex flex-col flex-1">
+                    <h3 className="text-lg font-semibold mb-2 text-gray-800 dark:text-white leading-snug">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed flex-1">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.technologies.map((tech, i) => (
+                        <span
+                          key={i}
+                          className="px-2.5 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs rounded-full border border-blue-100 dark:border-blue-800"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="flex gap-4 pt-2 border-t border-gray-100 dark:border-gray-800">
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-700 dark:hover:text-sky-400 transition-colors"
+                      >
+                        <Github size={16} />
+                        Código
+                      </a>
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-700 dark:hover:text-sky-400 transition-colors"
+                      >
+                        <ExternalLink size={16} />
+                        Demo en vivo
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
