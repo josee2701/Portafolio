@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 
 type Theme = 'light' | 'dark';
 
@@ -9,7 +9,7 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
+function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>(() => {
     const savedTheme = localStorage.getItem('theme');
     return (savedTheme as Theme) || 'light';
@@ -20,9 +20,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     document.documentElement.classList.toggle('dark', theme === 'dark');
   }, [theme]);
 
-  const toggleTheme = () => {
+  const toggleTheme = useCallback(() => {
     setTheme(prev => prev === 'light' ? 'dark' : 'light');
-  };
+  }, []);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
@@ -31,10 +31,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function useTheme() {
+function useTheme() {
   const context = useContext(ThemeContext);
   if (context === undefined) {
     throw new Error('useTheme must be used within a ThemeProvider');
   }
   return context;
 }
+
+// eslint-disable-next-line react-refresh/only-export-components
+export { ThemeProvider, useTheme };
