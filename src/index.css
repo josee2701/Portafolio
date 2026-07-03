@@ -8,7 +8,40 @@ html {
 }
 
 body {
-  @apply text-gray-800;
+  @apply font-sans text-gray-800 dark:text-gray-200 antialiased;
+}
+
+/* Dark-first: evita el flash claro antes de que monte React */
+html:not(.dark) body { @apply bg-white; }
+html.dark body { @apply bg-ink-900; }
+
+/* Selección con acento de marca */
+::selection {
+  background-color: rgba(56, 189, 248, 0.3);
+}
+
+/* Rejilla técnica sutil para fondos oscuros */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Caret de terminal */
+@keyframes blink {
+  0%, 50%  { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+.caret {
+  animation: blink 1.1s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-blob,
+  .animate-pulse-ring,
+  .caret { animation: none !important; }
+  html { scroll-behavior: auto; }
 }
 
 /* Swiper — paleta azul */

@@ -5,7 +5,7 @@ const stats = [
   { number: "3+", label: "Proyectos Completados" },
   { number: "7", label: "Certificaciones" },
   { number: "2+", label: "Años de Experiencia" },
-  { number: "8+", label: "Tecnologías" },
+  { number: "12+", label: "Tecnologías" },
 ];
 
 const areas = [
@@ -37,10 +37,19 @@ const areas = [
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-white dark:bg-gray-900">
+    <section id="about" className="py-20 bg-white dark:bg-ink-900">
       <div className="container mx-auto px-6">
+        <motion.p
+          className="font-mono text-xs text-center text-sky-600 dark:text-sky-400 mb-3"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          // lo que hago
+        </motion.p>
         <motion.h2
-          className="text-3xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-sky-500 dark:from-blue-400 dark:to-sky-400"
+          className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -62,7 +71,7 @@ export default function About() {
             return (
               <motion.div
                 key={area.title}
-                className={`text-center p-6 rounded-2xl bg-white dark:bg-gray-800/60 border-2 border-transparent shadow-sm hover:shadow-lg ${area.borderHover} transition-all duration-300`}
+                className={`text-center p-6 rounded-2xl bg-white dark:bg-ink-800/60 border-2 border-gray-100 dark:border-white/10 shadow-sm hover:shadow-lg ${area.borderHover} transition-all duration-300`}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
