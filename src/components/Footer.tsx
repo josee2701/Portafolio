@@ -32,9 +32,13 @@ export default function Footer() {
             <h3 className="text-2xl font-bold text-white mb-1">Jose Campos</h3>
             <p className="text-sky-400 text-sm font-medium mb-4">Ingeniero de Sistemas</p>
             <p className="text-blue-200 text-sm leading-relaxed">
-              Desarrollador Backend especializado en Python, Django y FastAPI.
-              Apasionado por construir soluciones escalables y eficientes.
+              Desarrollador Backend especializado en Python, Django y FastAPI, con Java e IA
+              en el flujo de trabajo. Apasionado por construir soluciones escalables y eficientes.
             </p>
+            <span className="mt-4 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 font-mono text-xs text-emerald-300">
+              <span className="h-2 w-2 rounded-full bg-emerald-400" />
+              Disponible · freelance · servicios · contrato
+            </span>
           </div>
 
           {/* Columna 2 — Navegación */}

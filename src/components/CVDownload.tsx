@@ -20,18 +20,20 @@ export default function CVDownload() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 bg-indigo-600 dark:bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors"
+        aria-label="Descargar CV"
+        aria-expanded={isOpen}
+        className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-sky-500 text-white px-4 py-2 rounded-lg hover:shadow-glow transition-all"
       >
         <FileDown size={20} />
-        <span className="hidden sm:inline">Download CV</span>
+        <span className="hidden sm:inline">Descargar CV</span>
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg py-2 z-50">
+        <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-ink-800 border border-transparent dark:border-white/10 rounded-lg shadow-lg py-2 z-50">
           <a
             href="/cv/Cv-English-.pdf"
             download
-            className="flex items-center gap-2 px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            className="flex items-center gap-2 px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-ink-700 transition-colors"
             onClick={() => setIsOpen(false)}
           >
             <FileDown size={16} />
@@ -40,7 +42,7 @@ export default function CVDownload() {
           <a
             href="/cv/Cv-Español.pdf"
             download
-            className="flex items-center gap-2 px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            className="flex items-center gap-2 px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-ink-700 transition-colors"
             onClick={() => setIsOpen(false)}
           >
             <FileDown size={16} />

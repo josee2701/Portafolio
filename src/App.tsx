@@ -8,6 +8,7 @@ const Projects = lazy(() => import('./components/Projects'));
 const Skills = lazy(() => import('./components/Skills'));
 const Certifications = lazy(() => import('./components/Certifications'));
 const SpotifyPlayer = lazy(() => import('./components/SpotifyPlayer'));
+const WorkTogether = lazy(() => import('./components/WorkTogether'));
 const Contact = lazy(() => import('./components/Contact'));
 const Footer = lazy(() => import('./components/Footer'));
 
@@ -20,7 +21,7 @@ const Loading = () => (
 function App() {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+      <div className="min-h-screen bg-white dark:bg-ink-900 transition-colors duration-300">
         <Header />
         <main>
           <Hero />
@@ -30,6 +31,7 @@ function App() {
             <Skills />
             <Certifications />
             <SpotifyPlayer />
+            <WorkTogether />
             <Contact />
           </Suspense>
         </main>

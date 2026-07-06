@@ -44,21 +44,30 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const inputClass = "w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent dark:text-white placeholder-gray-400 transition-all duration-200 text-sm";
+  const inputClass = "w-full px-4 py-3 bg-white dark:bg-ink-800 border border-gray-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-sky-500 dark:focus:ring-sky-400 focus:border-transparent dark:text-white placeholder-gray-400 transition-all duration-200 text-sm";
   const labelClass = "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5";
 
   return (
     <motion.section
       id="contact"
-      className="py-20 bg-white dark:bg-gray-900"
+      className="py-20 bg-gray-50 dark:bg-ink-950"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
     >
       <div className="container mx-auto px-6">
+        <motion.p
+          className="font-mono text-xs text-center text-sky-600 dark:text-sky-400 mb-3"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          // hablemos
+        </motion.p>
         <motion.h2
-          className="text-3xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-sky-500 dark:from-blue-400 dark:to-sky-400"
+          className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -67,7 +76,7 @@ export default function Contact() {
           Póngase en contacto
         </motion.h2>
         <motion.div
-          className="w-20 h-1 bg-gradient-to-r from-blue-700 to-sky-500 dark:from-blue-400 dark:to-sky-400 mx-auto mb-16"
+          className="w-20 h-1 bg-gradient-to-r from-blue-600 to-sky-400 mx-auto mb-16 rounded-full"
           initial={{ opacity: 0, scaleX: 0 }}
           whileInView={{ opacity: 1, scaleX: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -134,7 +143,7 @@ export default function Contact() {
             <button
               type="submit"
               disabled={isSubmitting || hasSubmitted}
-              className="w-full bg-gradient-to-r from-blue-700 to-sky-500 text-white px-6 py-3.5 rounded-xl hover:shadow-lg hover:shadow-blue-500/30 hover:scale-[1.02] transition-all duration-300 font-medium disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100"
+              className="w-full bg-gradient-to-r from-blue-600 to-sky-500 text-white px-6 py-3.5 rounded-xl hover:shadow-glow hover:scale-[1.02] transition-all duration-300 font-medium disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100"
             >
               {isSubmitting ? 'Enviando...' : hasSubmitted ? '✓ Mensaje enviado' : 'Enviar mensaje'}
             </button>

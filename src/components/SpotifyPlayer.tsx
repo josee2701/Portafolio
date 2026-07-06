@@ -3,7 +3,7 @@ import { SiSpotify } from 'react-icons/si';
 
 export default function SpotifyPlayer() {
   return (
-    <section id="music" className="py-20 bg-white dark:bg-gray-900">
+    <section id="music" className="py-20 bg-white dark:bg-ink-900">
       <div className="container mx-auto px-6">
         <motion.div
           className="flex items-center justify-center gap-3 mb-4"
@@ -13,13 +13,13 @@ export default function SpotifyPlayer() {
           viewport={{ once: true }}
         >
           <SiSpotify className="text-green-500 w-8 h-8" />
-          <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-sky-500 dark:from-blue-400 dark:to-sky-400">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
             Mi música mientras codifico
           </h2>
         </motion.div>
 
         <motion.div
-          className="w-20 h-1 bg-gradient-to-r from-blue-700 to-sky-500 dark:from-blue-400 dark:to-sky-400 mx-auto mb-12"
+          className="w-20 h-1 bg-gradient-to-r from-blue-600 to-sky-400 mx-auto mb-12 rounded-full"
           initial={{ opacity: 0, scaleX: 0 }}
           whileInView={{ opacity: 1, scaleX: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
