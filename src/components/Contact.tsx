@@ -24,13 +24,14 @@ export default function Contact() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
+        signal: AbortSignal.timeout(15000),
       });
       if (response.ok) {
         toast.success('¡Mensaje enviado correctamente!', { position: 'top-right', autoClose: 3000 });
         setFormData({ name: '', apellido: '', email: '', phone: '', message: '' });
         setHasSubmitted(true);
       } else {
-        const err = await response.json();
+        const err = await response.json().catch(() => ({} as { message?: string }));
         toast.error(`Error: ${err.message || 'No se pudo enviar.'}`, { position: 'top-right', autoClose: 3000 });
       }
     } catch {
@@ -44,7 +45,7 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const inputClass = "w-full px-4 py-3 bg-white dark:bg-ink-800 border border-gray-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-sky-500 dark:focus:ring-sky-400 focus:border-transparent dark:text-white placeholder-gray-400 transition-all duration-200 text-sm";
+  const inputClass = "w-full px-4 py-3 bg-white dark:bg-ink-800 border border-gray-200 dark:border-white/10 rounded-xl focus:ring-2 focus:ring-accent focus:border-transparent dark:text-white placeholder-gray-400 transition-all duration-200 text-sm";
   const labelClass = "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5";
 
   return (
@@ -58,7 +59,7 @@ export default function Contact() {
     >
       <div className="container mx-auto px-6">
         <motion.p
-          className="font-mono text-xs text-center text-sky-600 dark:text-sky-400 mb-3"
+          className="font-mono text-xs text-center text-accent mb-3"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
@@ -102,9 +103,9 @@ export default function Contact() {
                     <Icon className="text-white" size={20} />
                   </div>
                   <div>
-                    <p className="text-xs text-blue-600 dark:text-blue-400 font-medium uppercase tracking-wide">{label}</p>
+                    <p className="text-xs text-accent font-medium uppercase tracking-wide">{label}</p>
                     {href ? (
-                      <a href={href} className="text-gray-800 dark:text-gray-200 font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm">
+                      <a href={href} className="text-gray-800 dark:text-gray-200 font-medium hover:text-accent transition-colors text-sm">
                         {value}
                       </a>
                     ) : (
