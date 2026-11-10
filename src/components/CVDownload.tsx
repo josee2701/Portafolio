@@ -16,6 +16,15 @@ export default function CVDownload() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Escape cierra el menú (teclado)
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsOpen(false);
+    };
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, []);
+
   return (
     <div className="relative" ref={dropdownRef}>
       <button
@@ -31,7 +40,7 @@ export default function CVDownload() {
       {isOpen && (
         <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-ink-800 border border-transparent dark:border-white/10 rounded-lg shadow-lg py-2 z-50">
           <a
-            href="/cv/Cv-English-.pdf"
+            href="/cv/cv-en.pdf"
             download
             className="flex items-center gap-2 px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-ink-700 transition-colors"
             onClick={() => setIsOpen(false)}
@@ -40,7 +49,7 @@ export default function CVDownload() {
             CV English
           </a>
           <a
-            href="/cv/Cv-Español.pdf"
+            href="/cv/cv-es.pdf"
             download
             className="flex items-center gap-2 px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-ink-700 transition-colors"
             onClick={() => setIsOpen(false)}
