@@ -1,11 +1,55 @@
-import { Github, Linkedin, Mail, Menu, Moon, Sun, X } from 'lucide-react';
-import { useState } from 'react';
-import { useTheme } from '../context/ThemeContext';
+import { Github, Linkedin, Mail, Menu, X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { useActiveSection } from '../hooks/useActiveSection';
+import { navLinks } from '../navLinks';
 import CVDownload from './CVDownload';
+import IconLink from './IconLink';
+import ThemeToggle from './ThemeToggle';
+
+const linkClass = 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors';
+const activeClass = 'text-gray-900 dark:text-white';
+const headerLinks = navLinks.filter((l) => l.inHeader);
+const headerIds = headerLinks.map((l) => l.href.slice(1));
+
+const socials = (
+  <>
+    <IconLink href="https://github.com/josee2701" icon={Github} aria-label="GitHub" />
+    <IconLink href="https://www.linkedin.com/in/josee-py/" icon={Linkedin} aria-label="LinkedIn" />
+    <IconLink href="mailto:j.camposs2701@gmail.com" icon={Mail} aria-label="Enviar correo" />
+  </>
+);
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const active = useActiveSection(headerIds);
+
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsMenuOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [isMenuOpen]);
+
+  const renderLink = (href: string, label: string, onClick?: () => void) => {
+    const isActive = active === href.slice(1);
+    return (
+      <a
+        key={href}
+        href={href}
+        aria-current={isActive ? 'location' : undefined}
+        className={`${linkClass} ${isActive ? activeClass : ''}`}
+        onClick={onClick}
+      >
+        {label}
+      </a>
+    );
+  };
 
   return (
     <header className="fixed w-full bg-white/80 dark:bg-ink-900/80 backdrop-blur-md z-50 border-b border-gray-200/70 dark:border-white/5">
@@ -14,53 +58,29 @@ export default function Header() {
           <a href="#home" className="font-mono text-lg font-bold text-gray-900 dark:text-white">
             jose<span className="text-accent">.campos</span>
           </a>
-          
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#about" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Info</a>
-            <a href="#projects" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Proyectos</a>
-            <a href="#skills" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Skills</a>
-            <a href="#certifications" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Certificaciones</a>
-            <a href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">Contacto</a>
+            {headerLinks.map((l) => renderLink(l.href, l.label))}
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
             <CVDownload />
-            <button
-              onClick={toggleTheme}
-              aria-label={theme === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro'}
-              className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-            >
-              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
-            <a href="https://github.com/josee2701" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
-               className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
-              <Github size={20} />
-            </a>
-            <a href="https://www.linkedin.com/in/josee-py/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
-               className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
-              <Linkedin size={20} />
-            </a>
-            <a href="mailto:j.camposs2701@gmail.com" aria-label="Enviar correo"
-               className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
-              <Mail size={20} />
-            </a>
+            <ThemeToggle />
+            {socials}
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-4">
             <CVDownload />
+            <ThemeToggle />
             <button
-              onClick={toggleTheme}
-              aria-label={theme === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro'}
-              className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-            >
-              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
-            <button
+              ref={menuButtonRef}
+              type="button"
               className="text-gray-600 dark:text-gray-300"
               aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
               aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -70,32 +90,10 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-ink-900 border-t border-gray-200 dark:border-white/10 shadow-lg">
+          <div id="mobile-menu" className="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-ink-900 border-t border-gray-200 dark:border-white/10 shadow-card-hover">
             <div className="flex flex-col space-y-4 px-6 py-4">
-              <a href="#about" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                 onClick={() => setIsMenuOpen(false)}>Info</a>
-              <a href="#projects" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                 onClick={() => setIsMenuOpen(false)}>Proyectos</a>
-              <a href="#skills" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                 onClick={() => setIsMenuOpen(false)}>Skills</a>
-              <a href="#certifications" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                 onClick={() => setIsMenuOpen(false)}>Certificaciones</a>
-              <a href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-                 onClick={() => setIsMenuOpen(false)}>Contacto</a>
-              <div className="flex space-x-4 pt-2 border-t dark:border-gray-800">
-                <a href="https://github.com/josee2701" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
-                   className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
-                  <Github size={20} />
-                </a>
-                <a href="https://www.linkedin.com/in/josee-py/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
-                   className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
-                  <Linkedin size={20} />
-                </a>
-                <a href="mailto:j.camposs2701@gmail.com" aria-label="Enviar correo"
-                   className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
-                  <Mail size={20} />
-                </a>
-              </div>
+              {headerLinks.map((l) => renderLink(l.href, l.label, () => setIsMenuOpen(false)))}
+              <div className="flex space-x-4 pt-2 border-t dark:border-gray-800">{socials}</div>
             </div>
           </div>
         )}

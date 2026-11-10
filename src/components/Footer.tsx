@@ -1,14 +1,6 @@
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
-
-const navLinks = [
-  { label: 'Info', href: '#about' },
-  { label: 'Proyectos', href: '#projects' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Certificaciones', href: '#certifications' },
-  { label: 'Música', href: '#music' },
-  { label: 'Contacto', href: '#contact' },
-];
+import { navLinks } from '../navLinks';
 
 const socialLinks = [
   { icon: Github, label: 'GitHub', href: 'https://github.com/josee2701' },
@@ -45,7 +37,7 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-widest text-sky-400 mb-5">Navegación</h4>
             <ul className="space-y-2.5">
-              {navLinks.map(link => (
+              {navLinks.filter(link => link.inFooter).map(link => (
                 <li key={link.label}>
                   <a
                     href={link.href}
@@ -70,7 +62,7 @@ export default function Footer() {
                   rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="flex items-center gap-3 text-blue-200 hover:text-white transition-colors duration-200 group"
                 >
-                  <div className="w-9 h-9 rounded-lg bg-blue-800 dark:bg-blue-900 group-hover:bg-sky-500 flex items-center justify-center transition-colors duration-200">
+                  <div className="w-9 h-9 rounded-chip bg-blue-800 dark:bg-blue-900 group-hover:bg-sky-500 flex items-center justify-center transition-colors duration-200">
                     <Icon size={18} />
                   </div>
                   <span className="text-sm">{label}</span>
@@ -81,7 +73,7 @@ export default function Footer() {
         </motion.div>
 
         <div className="border-t border-blue-800 dark:border-blue-900 pt-6 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-blue-400">
-          <p>&copy; {new Date().getFullYear()} Jose Campos. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Jose Campos. Todos los derechos reservados.</p>
           <p>Hecho con React + Vite + Tailwind CSS</p>
         </div>
       </div>
