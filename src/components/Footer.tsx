@@ -1,5 +1,5 @@
 import { Github, Linkedin, Mail } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { navLinks } from '../navLinks';
 
 const socialLinks = [
@@ -12,7 +12,7 @@ export default function Footer() {
   return (
     <footer className="bg-blue-950 dark:bg-gray-950 text-white">
       <div className="container mx-auto px-6 pt-14 pb-8">
-        <motion.div
+        <m.div
           className="grid md:grid-cols-3 gap-10 mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -70,7 +70,7 @@ export default function Footer() {
               ))}
             </div>
           </div>
-        </motion.div>
+        </m.div>
 
         <div className="border-t border-blue-800 dark:border-blue-900 pt-6 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-blue-400">
           <p>&copy; {new Date().getFullYear()} Jose Campos. Todos los derechos reservados.</p>

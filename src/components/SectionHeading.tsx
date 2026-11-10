@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 interface SectionHeadingProps {
   title: string;
@@ -15,7 +15,7 @@ export default function SectionHeading({ title, eyebrow, id, size = 'lg', classN
   return (
     <div className={className}>
       {eyebrow && (
-        <motion.p
+        <m.p
           className="eyebrow text-center mb-3"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -23,9 +23,9 @@ export default function SectionHeading({ title, eyebrow, id, size = 'lg', classN
           viewport={viewport}
         >
           {eyebrow}
-        </motion.p>
+        </m.p>
       )}
-      <motion.h2
+      <m.h2
         id={id}
         className={`${lg ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-bold text-center mb-4 text-gray-900 dark:text-white`}
         initial={{ opacity: 0, y: 20 }}
@@ -34,8 +34,8 @@ export default function SectionHeading({ title, eyebrow, id, size = 'lg', classN
         viewport={viewport}
       >
         {title}
-      </motion.h2>
-      <motion.div
+      </m.h2>
+      <m.div
         className={`w-20 h-1 bg-gradient-to-r from-blue-600 to-sky-400 mx-auto ${lg ? 'mb-16' : 'mb-8'} rounded-full`}
         initial={{ opacity: 0, scaleX: 0 }}
         whileInView={{ opacity: 1, scaleX: 1 }}

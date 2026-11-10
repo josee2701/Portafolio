@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import {
   SiPython, SiOpenjdk,
   SiDjango, SiFastapi, SiPostgresql, SiMysql,
@@ -46,7 +46,7 @@ export default function Skills() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {Object.entries(skills).map(([category, categorySkills], catIndex) => (
-            <motion.div
+            <m.div
               key={category}
               className="rounded-card border border-gray-200 dark:border-white/10 bg-white dark:bg-ink-800/60 p-6 hover:border-accent/60 dark:hover:border-accent/40 transition-colors duration-300"
               initial={{ opacity: 0, y: 30 }}
@@ -73,7 +73,7 @@ export default function Skills() {
                   );
                 })}
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

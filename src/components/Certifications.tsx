@@ -1,7 +1,7 @@
 import { Award, Calendar, ExternalLink } from 'lucide-react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -63,7 +63,7 @@ const certifications = [
 
 export default function Certifications() {
   return (
-    <motion.section
+    <m.section
       id="certifications"
       className="py-20 bg-gray-50 dark:bg-ink-950"
       initial={{ opacity: 0 }}
@@ -74,7 +74,7 @@ export default function Certifications() {
       <div className="container mx-auto px-6">
         <SectionHeading eyebrow="// formación continua" title="Certificaciones y logros" />
 
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -132,8 +132,8 @@ export default function Certifications() {
               </SwiperSlide>
             ))}
           </Swiper>
-        </motion.div>
+        </m.div>
       </div>
-    </motion.section>
+    </m.section>
   );
 }

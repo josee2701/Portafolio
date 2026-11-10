@@ -1,5 +1,5 @@
 import { Code2, MonitorSpeaker, Server } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import SectionHeading from './SectionHeading';
 
 const stats = [
@@ -47,7 +47,7 @@ export default function About() {
           {areas.map((area, index) => {
             const Icon = area.icon;
             return (
-              <motion.div
+              <m.div
                 key={area.title}
                 className={`text-center p-6 rounded-card bg-white dark:bg-ink-800/60 border-2 border-gray-100 dark:border-white/10 shadow-card hover:shadow-card-hover ${area.borderHover} transition-all duration-300`}
                 initial={{ opacity: 0, y: 40 }}
@@ -60,13 +60,13 @@ export default function About() {
                 </div>
                 <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">{area.title}</h3>
                 <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{area.description}</p>
-              </motion.div>
+              </m.div>
             );
           })}
         </div>
 
         {/* Stats integradas dentro de About */}
-        <motion.div
+        <m.div
           className="rounded-card bg-gradient-to-r from-blue-900 to-blue-700 dark:from-blue-950 dark:to-blue-800 p-10"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -75,7 +75,7 @@ export default function About() {
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <motion.div
+              <m.div
                 key={stat.label}
                 className="text-center"
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -85,10 +85,10 @@ export default function About() {
               >
                 <div className="text-4xl md:text-5xl font-bold text-white mb-2">{stat.number}</div>
                 <div className="text-blue-200 text-sm md:text-base">{stat.label}</div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

@@ -1,6 +1,5 @@
 import { ArrowUpRight, MessageSquare } from 'lucide-react';
 import Button from './Button';
-import { motion } from 'framer-motion';
 
 export default function Hero() {
   return (
@@ -18,12 +17,7 @@ export default function Hero() {
       <div className="container mx-auto px-6 py-28 relative z-10">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
           {/* Columna texto */}
-          <motion.div
-            className="order-2 lg:order-1"
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <div className="order-2 lg:order-1 animate-hero-text">
             <p className="eyebrow sm:text-sm mb-5">
               // desarrollador backend e ingeniero de sistemas
             </p>
@@ -65,15 +59,10 @@ export default function Hero() {
                 Trabajemos juntos
               </Button>
             </div>
-          </motion.div>
+          </div>
 
           {/* Columna foto (protagonista) */}
-          <motion.div
-            className="order-1 lg:order-2 lg:justify-self-end w-full max-w-sm mx-auto"
-            initial={{ opacity: 0, y: 24, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-          >
+          <div className="order-1 lg:order-2 lg:justify-self-end w-full max-w-sm mx-auto animate-hero-photo">
             <div className="relative">
               {/* Glow y anillo de acento detrás de la foto */}
               <div className="absolute -inset-4 bg-gradient-to-tr from-blue-500/30 to-sky-400/20 rounded-photo-glow blur-2xl" />
@@ -110,7 +99,7 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

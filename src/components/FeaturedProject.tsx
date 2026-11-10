@@ -1,7 +1,7 @@
 import Button from './Button';
 import SectionHeading from './SectionHeading';
 import { ExternalLink } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const base = '/Gallery/despertador';
 
@@ -15,7 +15,7 @@ const stack = ['Flutter', 'Android', 'IA'];
 
 export default function FeaturedProject() {
   return (
-    <motion.section
+    <m.section
       id="featured"
       aria-labelledby="featured-title"
       className="py-12 bg-white dark:bg-ink-900"
@@ -111,6 +111,6 @@ export default function FeaturedProject() {
           </div>
         </div>
       </div>
-    </motion.section>
+    </m.section>
   );
 }

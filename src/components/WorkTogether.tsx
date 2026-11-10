@@ -1,5 +1,5 @@
 import Button from './Button';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Briefcase, Handshake, FileSignature, ArrowUpRight } from 'lucide-react';
 
 const modalidades = [
@@ -24,7 +24,7 @@ export default function WorkTogether() {
   return (
     <section id="work" className="py-20 bg-gray-50 dark:bg-ink-950" aria-label="Trabajemos juntos">
       <div className="container mx-auto px-6">
-        <motion.div
+        <m.div
           className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-ink-800/70 p-8 md:p-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -45,11 +45,11 @@ export default function WorkTogether() {
             </p>
 
             <div className="mt-10 grid sm:grid-cols-3 gap-5">
-              {modalidades.map((m, i) => {
-                const Icon = m.icon;
+              {modalidades.map((modalidad, i) => {
+                const Icon = modalidad.icon;
                 return (
-                  <motion.div
-                    key={m.title}
+                  <m.div
+                    key={modalidad.title}
                     className="rounded-card border border-gray-200 dark:border-white/10 bg-white dark:bg-ink-900/60 p-5"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -59,9 +59,9 @@ export default function WorkTogether() {
                     <div className="w-11 h-11 rounded-chip bg-accent/10 flex items-center justify-center mb-4">
                       <Icon size={22} className="text-accent" />
                     </div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white">{m.title}</h3>
-                    <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">{m.description}</p>
-                  </motion.div>
+                    <h3 className="font-semibold text-gray-900 dark:text-white">{modalidad.title}</h3>
+                    <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">{modalidad.description}</p>
+                  </m.div>
                 );
               })}
             </div>
@@ -71,7 +71,7 @@ export default function WorkTogether() {
               <ArrowUpRight size={18} />
             </Button>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

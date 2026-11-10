@@ -2,7 +2,7 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import Button from './Button';
 import SectionHeading from './SectionHeading';
 
@@ -73,7 +73,7 @@ export default function Contact() {
   const labelClass = "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5";
 
   return (
-    <motion.section
+    <m.section
       id="contact"
       className="py-20 bg-gray-50 dark:bg-ink-950"
       initial={{ opacity: 0 }}
@@ -84,7 +84,7 @@ export default function Contact() {
       <div className="container mx-auto px-6">
         <SectionHeading eyebrow="// hablemos" title="Póngase en contacto" />
 
-        <motion.div
+        <m.div
           className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -150,9 +150,9 @@ export default function Contact() {
               {hasSubmitted ? '✓ Mensaje enviado' : 'Enviar mensaje'}
             </Button>
           </form>
-        </motion.div>
+        </m.div>
       </div>
       <ToastContainer />
-    </motion.section>
+    </m.section>
   );
 }

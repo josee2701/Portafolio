@@ -1,8 +1,12 @@
 import { lazy, Suspense } from 'react';
+import { LazyMotion } from 'framer-motion';
 import { ThemeProvider } from './context/ThemeContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
 
+// Carga las features de animación fuera de la ruta crítica
+const loadMotionFeatures = () =>
+  import('./motionFeatures').then((mod) => mod.default);
 const FeaturedProject = lazy(() => import('./components/FeaturedProject'));
 const About = lazy(() => import('./components/About'));
 const Projects = lazy(() => import('./components/Projects'));
@@ -22,25 +26,27 @@ const Loading = () => (
 function App() {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-white dark:bg-ink-900 transition-colors duration-300">
-        <Header />
-        <main>
-          <Hero />
-          <Suspense fallback={<Loading />}>
-            <FeaturedProject />
-            <About />
-            <Projects />
-            <Skills />
-            <Certifications />
-            <SpotifyPlayer />
-            <WorkTogether />
-            <Contact />
+      <LazyMotion features={loadMotionFeatures} strict>
+        <div className="min-h-screen bg-white dark:bg-ink-900 transition-colors duration-300">
+          <Header />
+          <main>
+            <Hero />
+            <Suspense fallback={<Loading />}>
+              <FeaturedProject />
+              <About />
+              <Projects />
+              <Skills />
+              <Certifications />
+              <SpotifyPlayer />
+              <WorkTogether />
+              <Contact />
+            </Suspense>
+          </main>
+          <Suspense fallback={null}>
+            <Footer />
           </Suspense>
-        </main>
-        <Suspense fallback={null}>
-          <Footer />
-        </Suspense>
-      </div>
+        </div>
+      </LazyMotion>
     </ThemeProvider>
   );
 }
