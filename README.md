@@ -16,3 +16,4 @@ npm run lint     # ESLint
 - `src/components/`: una sección o pieza de interfaz por archivo.
 - `src/context/`: tema claro/oscuro (`ThemeProvider`).
 - `public/Gallery/`: imágenes de proyectos y certificados. `public/cv/`: currículums en PDF.
+- [`docs/COMPONENTES.md`](docs/COMPONENTES.md): sistema de diseño (tokens, componentes y convenciones).

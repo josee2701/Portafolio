@@ -14,7 +14,7 @@ Orden por importancia. Los números sirven para referirse a cada punto.
 | A2 | Conviene corregirlo | Quitar `React` del import no usado (el `tsc` fallaba) | `src/App.tsx` | Hecho |
 | A3 | Conviene corregirlo | Timeout de 15 s y error correcto cuando la respuesta no es JSON | `src/components/Contact.tsx` | Hecho |
 | A4 | Conviene corregirlo | Plantilla eliminada: `.bolt/` borrado, README reescrito, paquete renombrado a `portafolio-jose-campos` | `README.md`, `.bolt/`, `package.json` | Hecho |
-| A5 | Opcional | "JavaScript" duplicado en habilidades: se quitó de Frontend y queda en Lenguajes | `src/components/Skills.tsx` | Hecho |
+| A5 | Opcional | "JavaScript" duplicado en habilidades: se quitó de Frontend; después se quitaron JavaScript y TypeScript de `Skills.tsx` a pedido de Jose | `src/components/Skills.tsx` | Hecho |
 | A6 | Opcional | "Demo en vivo" del proyecto de correos quitado (apuntaba a una API) | `src/components/Projects.tsx` | Hecho |
 
 **Ahorro estimado:** −224 líneas (documentación y archivos sobrantes). Ninguna dependencia se puede quitar: `react-icons` aporta los logos de Spotify, Azure y las habilidades.
@@ -48,7 +48,7 @@ Orden por importancia. Los números sirven para referirse a cada punto.
 |---|-------|---------|-------------|
 | 1 | A1 a A6 | Todo hecho el 2026-11-10 (ver sección 1) | — |
 | 2 | Pendiente del dueño: el repo de `despertador_novia` debe ser público para que el enlace de GitHub del caso destacado funcione | Enlace roto si es privado | 1 min |
-| 3 | Pendiente: la paleta usa `blue` y `sky` para el mismo acento; unificar en un token `brand` | Coherencia visual | 1 h |
+| 3 | Pendiente: la paleta usa `blue` y `sky` para el mismo acento; unificar en el token `accent` (ya existe; falta migrar las excepciones acordadas) | Coherencia visual | 1 h |
 | 4 | Pendiente: escala de radios y sombras para tarjetas | Consistencia | 1 h |
 
 ---
@@ -65,3 +65,15 @@ Orden por importancia. Los números sirven para referirse a cada punto.
 **Pendiente de decidir:**
 - Las capturas de `play_store/` son mockups de marketing con texto superpuesto, no capturas limpias. Si quieres capturas de pantalla reales, hay que sacarlas en un dispositivo.
 - Los textos de "Próximas mejoras" salen de `CLAUDE.md` del repo de la app (sección 12). Si cambian los planes, actualiza `ProyectoDestacado.tsx`.
+
+---
+
+## 5. Mejoras de diseño del 2026-11-10
+
+**Hecho:**
+- `Button` y `SectionHeading` compartidos, usados en las secciones y en `CVDownload`.
+- `navLinks` (`src/navLinks.ts`) con estado activo en el Header (`useActiveSection`, `aria-current="location"`).
+- Validación del formulario de contacto con mensajes de error por campo y estados de envío.
+- Documentación del sistema de diseño en `docs/COMPONENTES.md`.
+- Tokens de radios (`card`, `chip`) y sombras (`card`, `card-hover`) aplicados.
+- 0 valores arbitrarios de Tailwind en `src`.
