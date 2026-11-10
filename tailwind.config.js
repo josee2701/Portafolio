@@ -16,9 +16,20 @@ export default {
           800: '#111827',
           700: '#1B2436',
         },
+        // Acento semántico: cambia con el tema (variables en src/index.css)
+        accent: {
+          DEFAULT: 'rgb(var(--accent) / <alpha-value>)',
+          strong: 'rgb(var(--accent-strong) / <alpha-value>)',
+        },
+      },
+      borderRadius: {
+        card: '1rem', // = rounded-2xl
+        chip: '0.5rem', // = rounded-lg
       },
       boxShadow: {
-        glow: '0 0 40px -12px rgba(56, 189, 248, 0.45)',
+        glow: '0 0 40px -12px rgb(var(--accent) / 0.45)',
+        card: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)', // = shadow-lg
+        'card-hover': '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)', // = shadow-xl
       },
     },
   },
