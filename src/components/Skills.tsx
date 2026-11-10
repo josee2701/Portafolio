@@ -4,7 +4,7 @@ import {
   SiDjango, SiFastapi, SiPostgresql, SiMysql,
   SiReact, SiTailwindcss,
   SiGit, SiDocker, SiLinux,
-  SiAnthropic, SiOpenai, SiGithubcopilot,
+  SiClaude, SiOpenai,
 } from 'react-icons/si';
 import { VscAzure } from 'react-icons/vsc';
 
@@ -32,9 +32,8 @@ const skills: Record<string, Skill[]> = {
     { name: 'Linux', icon: SiLinux, color: 'text-yellow-300' },
   ],
   'IA & Herramientas': [
-    { name: 'Claude', icon: SiAnthropic, color: 'text-orange-400' },
+    { name: 'Claude', icon: SiClaude, color: 'text-orange-400' },
     { name: 'ChatGPT', icon: SiOpenai, color: 'text-teal-300' },
-    { name: 'Copilot', icon: SiGithubcopilot, color: 'text-gray-500 dark:text-gray-300' },
   ],
 };
 
