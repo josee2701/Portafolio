@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 const stats = [
   { number: "3+", label: "Proyectos Completados" },
   { number: "7", label: "Certificaciones" },
-  { number: "2+", label: "Años de Experiencia" },
-  { number: "12+", label: "Tecnologías" },
+  { number: "3+", label: "Años de Experiencia" },
+  { number: "5", label: "Tecnologías" },
 ];
 
 const areas = [
