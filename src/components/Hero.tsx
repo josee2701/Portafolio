@@ -23,7 +23,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="font-mono text-xs sm:text-sm text-sky-600 dark:text-sky-400 mb-5">
+            <p className="font-mono text-xs sm:text-sm text-accent mb-5">
               // backend developer &amp; systems engineer
             </p>
 
@@ -64,7 +64,7 @@ export default function Hero() {
               </a>
               <a
                 href="#work"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium text-gray-800 dark:text-gray-100 border border-gray-300 dark:border-white/15 hover:border-sky-400 dark:hover:border-sky-400 hover:text-sky-600 dark:hover:text-sky-300 transition-colors duration-300"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium text-gray-800 dark:text-gray-100 border border-gray-300 dark:border-white/15 hover:border-accent hover:text-accent-strong transition-colors duration-300"
               >
                 <MessageSquare size={18} />
                 Trabajemos juntos

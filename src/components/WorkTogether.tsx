@@ -33,7 +33,7 @@ export default function WorkTogether() {
           <div className="absolute -top-24 -right-16 w-72 h-72 bg-sky-400/20 dark:bg-sky-500/10 rounded-full blur-3xl" />
 
           <div className="relative">
-            <p className="font-mono text-xs text-sky-600 dark:text-sky-400 mb-3">// abierto a nuevos retos</p>
+            <p className="font-mono text-xs text-accent mb-3">// abierto a nuevos retos</p>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white max-w-2xl">
               ¿Tienes un proyecto en mente? Construyámoslo juntos.
             </h2>
@@ -55,8 +55,8 @@ export default function WorkTogether() {
                     transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <div className="w-11 h-11 rounded-xl bg-sky-500/10 flex items-center justify-center mb-4">
-                      <Icon size={22} className="text-sky-600 dark:text-sky-400" />
+                    <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+                      <Icon size={22} className="text-accent" />
                     </div>
                     <h3 className="font-semibold text-gray-900 dark:text-white">{m.title}</h3>
                     <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">{m.description}</p>

@@ -12,7 +12,7 @@ export default function Header() {
       <nav className="container mx-auto px-6 py-4" aria-label="Principal">
         <div className="flex items-center justify-between">
           <a href="#home" className="font-mono text-lg font-bold text-gray-900 dark:text-white">
-            jose<span className="text-sky-500 dark:text-sky-400">.campos</span>
+            jose<span className="text-accent">.campos</span>
           </a>
           
           {/* Desktop Navigation */}
@@ -33,15 +33,15 @@ export default function Header() {
             >
               {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
             </button>
-            <a href="https://github.com/josee2701" target="_blank" rel="noopener noreferrer" 
+            <a href="https://github.com/josee2701" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
                className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
               <Github size={20} />
             </a>
-            <a href="https://www.linkedin.com/in/josee-py/" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.linkedin.com/in/josee-py/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
                className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
               <Linkedin size={20} />
             </a>
-            <a href="mailto:j.camposs2701@gmail.com"
+            <a href="mailto:j.camposs2701@gmail.com" aria-label="Enviar correo"
                className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
               <Mail size={20} />
             </a>
@@ -83,15 +83,15 @@ export default function Header() {
               <a href="#contact" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
                  onClick={() => setIsMenuOpen(false)}>Contacto</a>
               <div className="flex space-x-4 pt-2 border-t dark:border-gray-800">
-                <a href="https://github.com/josee2701" target="_blank" rel="noopener noreferrer" 
+                <a href="https://github.com/josee2701" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
                    className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
                   <Github size={20} />
                 </a>
-                <a href="https://www.linkedin.com/in/josee-py/" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.linkedin.com/in/josee-py/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
                    className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
                   <Linkedin size={20} />
                 </a>
-                <a href="mailto:j.camposs2701@gmail.com"
+                <a href="mailto:j.camposs2701@gmail.com" aria-label="Enviar correo"
                    className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
                   <Mail size={20} />
                 </a>

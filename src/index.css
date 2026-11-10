@@ -11,13 +11,30 @@ body {
   @apply font-sans text-gray-800 dark:text-gray-200 antialiased;
 }
 
+/* Token de acento (formato "R G B" para admitir alpha). Claro: sky-600 / blue-700; oscuro: sky-400 / sky-300 */
+:root {
+  --accent: 2 132 199;
+  --accent-strong: 29 78 216;
+}
+.dark {
+  --accent: 56 189 248;
+  --accent-strong: 125 211 252;
+}
+
 /* Dark-first: evita el flash claro antes de que monte React */
 html:not(.dark) body { @apply bg-white; }
 html.dark body { @apply bg-ink-900; }
 
+/* Foco visible para teclado (enlaces, botones, campos) */
+:focus-visible {
+  outline: 2px solid rgb(var(--accent));
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
 /* Selección con acento de marca */
 ::selection {
-  background-color: rgba(56, 189, 248, 0.3);
+  background-color: rgb(var(--accent) / 0.3);
 }
 
 /* Rejilla técnica sutil para fondos oscuros */
@@ -44,18 +61,18 @@ html.dark body { @apply bg-ink-900; }
   html { scroll-behavior: auto; }
 }
 
-/* Swiper — paleta azul */
+/* Swiper — acento */
 .swiper-button-next,
 .swiper-button-prev {
-  @apply text-blue-600 dark:text-sky-400;
+  color: rgb(var(--accent));
 }
 
 .swiper-pagination-bullet {
-  @apply bg-blue-600 dark:bg-sky-400;
+  background-color: rgb(var(--accent));
 }
 
 .swiper-pagination-bullet-active {
-  @apply bg-blue-700 dark:bg-sky-400;
+  background-color: rgb(var(--accent-strong));
 }
 
 /* Blob animations */

@@ -11,13 +11,20 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>(() => {
-    const savedTheme = localStorage.getItem('theme');
-    // Dark-first: oscuro por defecto cuando no hay preferencia guardada
-    return (savedTheme as Theme) || 'dark';
+    // Dark-first: oscuro por defecto. try/catch: el almacenamiento puede estar bloqueado
+    try {
+      return (localStorage.getItem('theme') as Theme) || 'dark';
+    } catch {
+      return 'dark';
+    }
   });
 
   useEffect(() => {
-    localStorage.setItem('theme', theme);
+    try {
+      localStorage.setItem('theme', theme);
+    } catch {
+      /* sin almacenamiento: el tema sigue funcionando en la sesión */
+    }
     document.documentElement.classList.toggle('dark', theme === 'dark');
   }, [theme]);
 

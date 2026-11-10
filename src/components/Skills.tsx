@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 import {
-  SiPython, SiJavascript, SiTypescript, SiOpenjdk,
+  SiPython, SiOpenjdk,
   SiDjango, SiFastapi, SiPostgresql, SiMysql,
   SiReact, SiTailwindcss,
   SiGit, SiDocker, SiLinux,
-  SiAnthropic, SiOpenai, SiGithubcopilot,
+  SiClaude, SiOpenai,
 } from 'react-icons/si';
 import { VscAzure } from 'react-icons/vsc';
 
@@ -14,8 +14,6 @@ const skills: Record<string, Skill[]> = {
   'Lenguajes': [
     { name: 'Python', icon: SiPython, color: 'text-yellow-500' },
     { name: 'Java', icon: SiOpenjdk, color: 'text-red-500' },
-    { name: 'JavaScript', icon: SiJavascript, color: 'text-yellow-400' },
-    { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-500' },
   ],
   'Backend': [
     { name: 'Django', icon: SiDjango, color: 'text-emerald-500' },
@@ -26,7 +24,6 @@ const skills: Record<string, Skill[]> = {
   'Frontend': [
     { name: 'React', icon: SiReact, color: 'text-cyan-400' },
     { name: 'Tailwind', icon: SiTailwindcss, color: 'text-sky-400' },
-    { name: 'JavaScript', icon: SiJavascript, color: 'text-yellow-400' },
   ],
   'DevOps & Cloud': [
     { name: 'Git', icon: SiGit, color: 'text-orange-500' },
@@ -35,9 +32,8 @@ const skills: Record<string, Skill[]> = {
     { name: 'Linux', icon: SiLinux, color: 'text-yellow-300' },
   ],
   'IA & Herramientas': [
-    { name: 'Claude', icon: SiAnthropic, color: 'text-orange-400' },
+    { name: 'Claude', icon: SiClaude, color: 'text-orange-400' },
     { name: 'ChatGPT', icon: SiOpenai, color: 'text-teal-300' },
-    { name: 'Copilot', icon: SiGithubcopilot, color: 'text-gray-500 dark:text-gray-300' },
   ],
 };
 
@@ -46,7 +42,7 @@ export default function Skills() {
     <section id="skills" className="py-20 bg-white dark:bg-ink-900">
       <div className="container mx-auto px-6">
         <motion.p
-          className="font-mono text-xs text-center text-sky-600 dark:text-sky-400 mb-3"
+          className="font-mono text-xs text-center text-accent mb-3"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
@@ -75,7 +71,7 @@ export default function Skills() {
           {Object.entries(skills).map(([category, categorySkills], catIndex) => (
             <motion.div
               key={category}
-              className="rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-ink-800/60 p-6 hover:border-sky-400/60 dark:hover:border-sky-400/40 transition-colors duration-300"
+              className="rounded-card border border-gray-200 dark:border-white/10 bg-white dark:bg-ink-800/60 p-6 hover:border-accent/60 dark:hover:border-accent/40 transition-colors duration-300"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: catIndex * 0.1 }}
@@ -90,7 +86,7 @@ export default function Skills() {
                   return (
                     <div
                       key={skill.name}
-                      className="group flex items-center gap-3 rounded-xl border border-transparent bg-gray-50 dark:bg-ink-900/70 px-3 py-2.5 hover:border-sky-400/50 hover:bg-white dark:hover:bg-ink-700/60 transition-all duration-300"
+                      className="group flex items-center gap-3 rounded-xl border border-transparent bg-gray-50 dark:bg-ink-900/70 px-3 py-2.5 hover:border-accent/50 hover:bg-white dark:hover:bg-ink-700/60 transition-all duration-300"
                     >
                       <Icon className={`w-6 h-6 shrink-0 ${skill.color} transition-transform duration-300 group-hover:scale-110`} />
                       <span className="text-sm font-medium text-gray-700 dark:text-gray-300 truncate">
