@@ -28,8 +28,11 @@ export default {
       },
       boxShadow: {
         glow: '0 0 40px -12px rgb(var(--accent) / 0.45)',
-        card: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)', // = shadow-lg
-        'card-hover': '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)', // = shadow-xl
+        card: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)', // = shadow-md (reposo de tarjetas)
+        'card-hover': '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)', // = shadow-xl (hover de tarjetas)
+      },
+      scale: {
+        102: '1.02', // reemplaza hover:scale-[1.02]
       },
     },
   },
