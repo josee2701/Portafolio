@@ -1,3 +1,5 @@
+import Button from './Button';
+import SectionHeading from './SectionHeading';
 import { ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -11,11 +13,11 @@ const screenshots = [
 
 const stack = ['Flutter', 'Android', 'IA'];
 
-export default function ProyectoDestacado() {
+export default function FeaturedProject() {
   return (
     <motion.section
-      id="proyecto-destacado"
-      aria-labelledby="proyecto-destacado-titulo"
+      id="featured"
+      aria-labelledby="featured-title"
       className="py-12 bg-white dark:bg-ink-900"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
@@ -23,15 +25,12 @@ export default function ProyectoDestacado() {
       viewport={{ once: true }}
     >
       <div className="container mx-auto px-6 max-w-6xl">
-        <p className="font-mono text-xs text-center text-accent mb-2">
-          // caso destacado · mi primera app desde cero con IA
-        </p>
-        <h2
-          id="proyecto-destacado-titulo"
-          className="text-2xl md:text-3xl font-bold text-center mb-6 text-gray-900 dark:text-white"
-        >
-          Bella Durmiente
-        </h2>
+        <SectionHeading
+          size="sm"
+          id="featured-title"
+          eyebrow="// caso destacado · mi primera app desde cero con IA"
+          title="Bella Durmiente"
+        />
 
         <div className="grid lg:grid-cols-2 gap-8 items-center p-6 rounded-card bg-gray-50 dark:bg-ink-800 border border-gray-200 dark:border-white/10 shadow-card">
           <div>
@@ -43,7 +42,7 @@ export default function ProyectoDestacado() {
                 height={56}
                 loading="lazy"
                 decoding="async"
-                className="w-14 h-14 rounded-2xl shrink-0"
+                className="w-14 h-14 rounded-card shrink-0"
               />
               <div>
                 <h3 className="font-semibold text-gray-900 dark:text-white">Bella Durmiente</h3>
@@ -72,27 +71,31 @@ export default function ProyectoDestacado() {
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
-              <a
+              <Button
+                size="sm"
                 href="https://play.google.com/store/apps/details?id=com.soy.josec.bella_durmiente"
                 target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-sky-500 text-white px-4 py-2 rounded-lg hover:shadow-glow transition-all"
               >
                 <ExternalLink size={18} aria-hidden="true" />
                 Descargar en Google Play
-              </a>
-              <a
+              </Button>
+              <Button
+                variant="secondary"
+                size="sm"
                 href="https://github.com/josee2701/despertador_novia"
                 target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-gray-600 dark:text-gray-400 hover:text-accent underline-offset-4 hover:underline transition-colors"
               >
                 Ver código
-              </a>
+              </Button>
             </div>
           </div>
 
-          <div className="flex gap-3 justify-start sm:justify-center overflow-x-auto">
+          <div
+            className="flex gap-3 justify-start sm:justify-center overflow-x-auto"
+            tabIndex={0}
+            role="region"
+            aria-label="Capturas de la app"
+          >
             {screenshots.map((s) => (
               <img
                 key={s.src}
@@ -102,7 +105,7 @@ export default function ProyectoDestacado() {
                 height={960}
                 loading="lazy"
                 decoding="async"
-                className="h-56 w-auto rounded-2xl border border-gray-200 dark:border-white/10 shrink-0"
+                className="h-56 w-auto rounded-card border border-gray-200 dark:border-white/10 shrink-0"
               />
             ))}
           </div>

@@ -3,7 +3,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
 
-const ProyectoDestacado = lazy(() => import('./components/ProyectoDestacado'));
+const FeaturedProject = lazy(() => import('./components/FeaturedProject'));
 const About = lazy(() => import('./components/About'));
 const Projects = lazy(() => import('./components/Projects'));
 const Skills = lazy(() => import('./components/Skills'));
@@ -14,7 +14,7 @@ const Contact = lazy(() => import('./components/Contact'));
 const Footer = lazy(() => import('./components/Footer'));
 
 const Loading = () => (
-  <div className="min-h-[200px] flex items-center justify-center">
+  <div className="min-h-loader flex items-center justify-center">
     <div className="w-8 h-8 border-4 border-accent border-t-transparent rounded-full animate-spin" />
   </div>
 );
@@ -27,7 +27,7 @@ function App() {
         <main>
           <Hero />
           <Suspense fallback={<Loading />}>
-            <ProyectoDestacado />
+            <FeaturedProject />
             <About />
             <Projects />
             <Skills />

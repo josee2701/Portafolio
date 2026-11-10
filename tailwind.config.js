@@ -22,14 +22,31 @@ export default {
           strong: 'rgb(var(--accent-strong) / <alpha-value>)',
         },
       },
+      boxShadow: {
+        glow: '0 0 40px -12px rgb(var(--accent) / 0.45)',
+        card: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)', // = shadow-md (reposo de tarjetas)
+        'card-hover': '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)', // = shadow-xl (hover de tarjetas)
+      },
+      spacing: {
+        'blob-lg': '28rem', // blob decorativo del Hero
+        'blob-md': '26rem', // blob decorativo del Hero
+        frame: '2px', // grosor del marco de la foto
+      },
+      maxHeight: {
+        photo: '30rem', // altura máxima de la foto del Hero
+      },
+      minHeight: {
+        loader: '200px', // contenedor del spinner de carga
+      },
       borderRadius: {
         card: '1rem', // = rounded-2xl
         chip: '0.5rem', // = rounded-lg
+        'photo-glow': '2rem',
+        'photo-frame': '1.75rem',
+        'photo-inner': '1.65rem', // = photo-frame menos el marco
       },
-      boxShadow: {
-        glow: '0 0 40px -12px rgb(var(--accent) / 0.45)',
-        card: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)', // = shadow-lg
-        'card-hover': '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)', // = shadow-xl
+      scale: {
+        102: '1.02', // reemplaza hover:scale-[1.02]
       },
     },
   },

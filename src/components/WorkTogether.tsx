@@ -1,3 +1,4 @@
+import Button from './Button';
 import { motion } from 'framer-motion';
 import { Briefcase, Handshake, FileSignature, ArrowUpRight } from 'lucide-react';
 
@@ -30,10 +31,10 @@ export default function WorkTogether() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <div className="absolute -top-24 -right-16 w-72 h-72 bg-sky-400/20 dark:bg-sky-500/10 rounded-full blur-3xl" />
+          <div className="absolute -top-24 -right-16 w-72 h-72 bg-accent/15 dark:bg-accent/10 rounded-full blur-3xl" />
 
           <div className="relative">
-            <p className="font-mono text-xs text-accent mb-3">// abierto a nuevos retos</p>
+            <p className="eyebrow mb-3">// abierto a nuevos retos</p>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white max-w-2xl">
               ¿Tienes un proyecto en mente? Construyámoslo juntos.
             </h2>
@@ -49,13 +50,13 @@ export default function WorkTogether() {
                 return (
                   <motion.div
                     key={m.title}
-                    className="rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-ink-900/60 p-5"
+                    className="rounded-card border border-gray-200 dark:border-white/10 bg-white dark:bg-ink-900/60 p-5"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+                    <div className="w-11 h-11 rounded-chip bg-accent/10 flex items-center justify-center mb-4">
                       <Icon size={22} className="text-accent" />
                     </div>
                     <h3 className="font-semibold text-gray-900 dark:text-white">{m.title}</h3>
@@ -65,13 +66,10 @@ export default function WorkTogether() {
               })}
             </div>
 
-            <a
-              href="#contact"
-              className="mt-10 inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium text-white bg-gradient-to-r from-blue-600 to-sky-500 hover:shadow-glow hover:scale-[1.02] transition-all duration-300"
-            >
+            <Button href="#contact" className="mt-10 hover:scale-102">
               Hablemos de tu proyecto
               <ArrowUpRight size={18} />
-            </a>
+            </Button>
           </div>
         </motion.div>
       </div>

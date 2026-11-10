@@ -7,6 +7,7 @@ import {
   SiClaude, SiOpenai,
 } from 'react-icons/si';
 import { VscAzure } from 'react-icons/vsc';
+import SectionHeading from './SectionHeading';
 
 type Skill = { name: string; icon: React.ComponentType<{ className?: string }>; color: string };
 
@@ -41,31 +42,7 @@ export default function Skills() {
   return (
     <section id="skills" className="py-20 bg-white dark:bg-ink-900">
       <div className="container mx-auto px-6">
-        <motion.p
-          className="font-mono text-xs text-center text-accent mb-3"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          // stack tecnológico
-        </motion.p>
-        <motion.h2
-          className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          Skills y experiencia
-        </motion.h2>
-        <motion.div
-          className="w-20 h-1 bg-gradient-to-r from-blue-600 to-sky-400 mx-auto mb-16 rounded-full"
-          initial={{ opacity: 0, scaleX: 0 }}
-          whileInView={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-        />
+        <SectionHeading eyebrow="// stack tecnológico" title="Habilidades y experiencia" />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {Object.entries(skills).map(([category, categorySkills], catIndex) => (

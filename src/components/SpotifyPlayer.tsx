@@ -37,7 +37,7 @@ export default function SpotifyPlayer() {
         </motion.p>
 
         <motion.div
-          className="max-w-2xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/20"
+          className="max-w-2xl mx-auto rounded-card overflow-hidden shadow-2xl shadow-blue-900/20"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}

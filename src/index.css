@@ -32,6 +32,14 @@ html.dark body { @apply bg-ink-900; }
   border-radius: 4px;
 }
 
+/* Eyebrow de sección: color en CSS directo porque @apply con text-accent falla en dev */
+@layer components {
+  .eyebrow {
+    @apply font-mono text-xs;
+    color: rgb(var(--accent));
+  }
+}
+
 /* Selección con acento de marca */
 ::selection {
   background-color: rgb(var(--accent) / 0.3);
