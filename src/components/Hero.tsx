@@ -24,8 +24,8 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="font-mono text-xs sm:text-sm text-accent mb-5">
-              // backend developer &amp; systems engineer
+            <p className="eyebrow sm:text-sm mb-5">
+              // desarrollador backend e ingeniero de sistemas
             </p>
 
             {/* Badge de disponibilidad */}
@@ -81,10 +81,13 @@ export default function Hero() {
                 <div className="relative rounded-photo-inner overflow-hidden bg-ink-800">
                   <img
                     src="/Gallery/Perfil.webp"
+                    srcSet="/Gallery/Perfil-480.webp 480w, /Gallery/Perfil.webp 768w"
+                    sizes="(max-width: 384px) 100vw, 384px"
                     alt="Retrato de Jose Campos, desarrollador backend"
                     width={768}
                     height={1344}
                     fetchPriority="high"
+                    decoding="async"
                     className="w-full h-auto max-h-photo object-cover object-top"
                   />
                   {/* Degradado inferior para legibilidad de la tira */}

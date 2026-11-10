@@ -13,7 +13,7 @@ const projects = [
   {
     title: "Plataforma De E-Commerce",
     description: "Plataforma para gestionar una pequeña empresa: subir productos, mantener stock y validar ventas. Desarrollada en Django con arquitectura monolítica.",
-    image: "/Gallery/Tienda.webp",
+    image: "/Gallery/Tienda-sm.webp",
     technologies: ["Python", "Django", "HTML", "JavaScript", "Pythonanywhere"],
     githubUrl: "https://github.com/josee2701/Django_Class",
     liveUrl: "https://josee270114.pythonanywhere.com/",
@@ -21,14 +21,14 @@ const projects = [
   {
     title: "Envío de Correos con Django, DRF y FastAPI",
     description: "API para envío de correos mediante POST, integrada con Gmail para confirmar al usuario y notificar al administrador. Registra información en PostgreSQL.",
-    image: "/Gallery/django-fasapi-gmail.webp",
+    image: "/Gallery/django-fasapi-gmail-sm.webp",
     technologies: ["Django", "Gmail", "REST APIs", "Render", "PostgreSQL"],
     githubUrl: "https://github.com/josee2701/Envio-Correos",
   },
   {
     title: "Portafolio CV Inicial",
     description: "Portafolio desarrollado desde cero con React para comprender su estructura, componentes y flujos de trabajo. Integra una API en Django y GitHub Actions para publicación automática.",
-    image: "/Gallery/image.webp",
+    image: "/Gallery/image-sm.webp",
     technologies: ["React", "GitHub Actions", "Django"],
     githubUrl: "https://github.com/josee2701/CV",
     liveUrl: "https://josee2701.github.io/CV/",
