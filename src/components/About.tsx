@@ -40,7 +40,7 @@ export default function About() {
     <section id="about" className="py-20 bg-white dark:bg-ink-900">
       <div className="container mx-auto px-6">
         <motion.p
-          className="font-mono text-xs text-center text-sky-600 dark:text-sky-400 mb-3"
+          className="font-mono text-xs text-center text-accent mb-3"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
@@ -71,7 +71,7 @@ export default function About() {
             return (
               <motion.div
                 key={area.title}
-                className={`text-center p-6 rounded-2xl bg-white dark:bg-ink-800/60 border-2 border-gray-100 dark:border-white/10 shadow-sm hover:shadow-lg ${area.borderHover} transition-all duration-300`}
+                className={`text-center p-6 rounded-card bg-white dark:bg-ink-800/60 border-2 border-gray-100 dark:border-white/10 shadow-sm hover:shadow-card ${area.borderHover} transition-all duration-300`}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
@@ -89,7 +89,7 @@ export default function About() {
 
         {/* Stats integradas dentro de About */}
         <motion.div
-          className="rounded-2xl bg-gradient-to-r from-blue-900 to-blue-700 dark:from-blue-950 dark:to-blue-800 p-10"
+          className="rounded-card bg-gradient-to-r from-blue-900 to-blue-700 dark:from-blue-950 dark:to-blue-800 p-10"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}

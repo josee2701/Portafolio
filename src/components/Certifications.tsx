@@ -71,7 +71,7 @@ export default function Certifications() {
     >
       <div className="container mx-auto px-6">
         <motion.p
-          className="font-mono text-xs text-center text-sky-600 dark:text-sky-400 mb-3"
+          className="font-mono text-xs text-center text-accent mb-3"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
@@ -116,7 +116,7 @@ export default function Certifications() {
           >
             {certifications.map((cert, index) => (
               <SwiperSlide key={index}>
-                <div className="bg-white dark:bg-ink-800 border border-transparent dark:border-white/10 rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-2 hover:border-sky-400/40 transition-all duration-300 h-full flex flex-col">
+                <div className="bg-white dark:bg-ink-800 border border-transparent dark:border-white/10 rounded-card overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-2 hover:border-accent/40 transition-all duration-300 h-full flex flex-col">
                   <div className="h-44 overflow-hidden bg-white">
                     <img
                       src={cert.image}
@@ -130,7 +130,7 @@ export default function Certifications() {
                   </div>
                   <div className="p-5 flex flex-col flex-1">
                     <div className="flex items-start gap-2 mb-2">
-                      <Award className="text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" size={18} />
+                      <Award className="text-accent flex-shrink-0 mt-0.5" size={18} />
                       <h3 className="text-base font-semibold text-gray-800 dark:text-white leading-snug">
                         {cert.title}
                       </h3>
@@ -144,7 +144,7 @@ export default function Certifications() {
                       href={cert.credentialUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-auto inline-flex items-center gap-1.5 text-sm text-blue-600 dark:text-blue-400 hover:text-sky-500 dark:hover:text-sky-400 transition-colors font-medium"
+                      className="mt-auto inline-flex items-center gap-1.5 text-sm text-accent hover:text-accent-strong transition-colors font-medium"
                     >
                       Ver credencial
                       <ExternalLink size={14} />
