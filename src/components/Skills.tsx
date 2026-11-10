@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import {
-  SiPython, SiJavascript, SiTypescript, SiOpenjdk,
+  SiPython, SiOpenjdk,
   SiDjango, SiFastapi, SiPostgresql, SiMysql,
   SiReact, SiTailwindcss,
   SiGit, SiDocker, SiLinux,
@@ -14,8 +14,6 @@ const skills: Record<string, Skill[]> = {
   'Lenguajes': [
     { name: 'Python', icon: SiPython, color: 'text-yellow-500' },
     { name: 'Java', icon: SiOpenjdk, color: 'text-red-500' },
-    { name: 'JavaScript', icon: SiJavascript, color: 'text-yellow-400' },
-    { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-500' },
   ],
   'Backend': [
     { name: 'Django', icon: SiDjango, color: 'text-emerald-500' },
