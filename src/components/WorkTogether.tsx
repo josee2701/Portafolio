@@ -56,7 +56,7 @@ export default function WorkTogether() {
                     transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+                    <div className="w-11 h-11 rounded-chip bg-accent/10 flex items-center justify-center mb-4">
                       <Icon size={22} className="text-accent" />
                     </div>
                     <h3 className="font-semibold text-gray-900 dark:text-white">{m.title}</h3>

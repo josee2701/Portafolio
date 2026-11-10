@@ -48,8 +48,8 @@ Orden por importancia. Los números sirven para referirse a cada punto.
 |---|-------|---------|-------------|
 | 1 | A1 a A6 | Todo hecho el 2026-11-10 (ver sección 1) | — |
 | 2 | Pendiente del dueño: el repo de `despertador_novia` debe ser público para que el enlace de GitHub del caso destacado funcione | Enlace roto si es privado | 1 min |
-| 3 | Pendiente: la paleta usa `blue` y `sky` para el mismo acento; unificar en el token `accent` (ya existe; falta migrar las excepciones acordadas) | Coherencia visual | 1 h |
-| 4 | Pendiente: escala de radios y sombras para tarjetas | Consistencia | 1 h |
+| 3 | Hecho: token `accent` aplicado; quedan solo las excepciones acordadas (p. ej. azul propio de la tarjeta Developer) | Coherencia visual | 1 h |
+| 4 | Hecho: radios `card`/`chip` y sombras `card`/`card-hover` aplicados | Consistencia | 1 h |
 
 ---
 
@@ -77,3 +77,7 @@ Orden por importancia. Los números sirven para referirse a cada punto.
 - Documentación del sistema de diseño en `docs/COMPONENTES.md`.
 - Tokens de radios (`card`, `chip`) y sombras (`card`, `card-hover`) aplicados.
 - 0 valores arbitrarios de Tailwind en `src`.
+- Estado activo del Header corregido: `useActiveSection` usa `MutationObserver` para observar secciones lazy.
+- Menú del CV: foco al primer ítem al abrir, flecha abajo abre, `useId()` por instancia.
+- Formulario de contacto: borde rojo en campos inválidos.
+- `ThemeToggle` sin `aria-pressed`; textos visibles en español (Habilidades y experiencia, Desarrollo Backend/Cloud/Frontend); icono de `WorkTogether` con `rounded-chip`.

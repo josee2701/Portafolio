@@ -9,7 +9,6 @@ export default function ThemeToggle() {
       type="button"
       onClick={toggleTheme}
       aria-label={dark ? 'Activar modo claro' : 'Activar modo oscuro'}
-      aria-pressed={dark}
       className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
     >
       {dark ? <Sun size={20} /> : <Moon size={20} />}

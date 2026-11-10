@@ -15,15 +15,16 @@ const areas = [
     iconBg: "bg-green-100 dark:bg-green-900/40",
     iconColor: "text-green-600 dark:text-green-400",
     borderHover: "hover:border-green-500 hover:shadow-green-500/10",
-    title: "Backend Development",
+    title: "Desarrollo Backend",
     description: "Creación de APIs REST seguras y escalables con Python, integrando WebSockets y adaptando soluciones a necesidades específicas.",
   },
   {
+    // Azul propio (no el token accent) para distinguir esta tarjeta de la de Frontend, que usa accent/sky
     icon: MonitorSpeaker,
     iconBg: "bg-blue-100 dark:bg-blue-900/40",
     iconColor: "text-blue-600 dark:text-blue-400",
     borderHover: "hover:border-blue-500 hover:shadow-blue-500/10",
-    title: "Developer",
+    title: "Desarrollo Cloud",
     description: "Desarrollador con experiencia en Azure, contenedores Docker y el uso de componentes como Storage y Kubernetes, con principios sólidos y enfoques prácticos.",
   },
   {
@@ -31,7 +32,7 @@ const areas = [
     iconBg: "bg-accent/10",
     iconColor: "text-accent",
     borderHover: "hover:border-accent hover:shadow-accent/10",
-    title: "Frontend Development",
+    title: "Desarrollo Frontend",
     description: "Creación de interfaces responsive e interactivas con React y Vue.js, iniciándome en el mundo del front-end.",
   },
 ];

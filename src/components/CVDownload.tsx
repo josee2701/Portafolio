@@ -1,5 +1,5 @@
 import { FileDown } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import Button from './Button';
 
 const itemClass =
@@ -7,6 +7,7 @@ const itemClass =
 
 export default function CVDownload() {
   const [isOpen, setIsOpen] = useState(false);
+  const menuId = useId();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -20,6 +21,11 @@ export default function CVDownload() {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  // Al abrir, el foco pasa al primer ítem
+  useEffect(() => {
+    if (isOpen) menuRef.current?.querySelector<HTMLElement>('[role="menuitem"]')?.focus();
+  }, [isOpen]);
 
   // Escape cierra el menú y devuelve el foco al botón
   useEffect(() => {
@@ -49,10 +55,16 @@ export default function CVDownload() {
       <Button
         size="sm"
         onClick={() => setIsOpen(!isOpen)}
+        onKeyDown={(e: React.KeyboardEvent) => {
+          if (e.key === 'ArrowDown' && !isOpen) {
+            e.preventDefault();
+            setIsOpen(true);
+          }
+        }}
         aria-label="Descargar CV"
         aria-expanded={isOpen}
         aria-haspopup="menu"
-        aria-controls="cv-menu"
+        aria-controls={menuId}
       >
         <FileDown size={20} />
         <span className="hidden sm:inline">Descargar CV</span>
@@ -60,7 +72,7 @@ export default function CVDownload() {
 
       {isOpen && (
         <div
-          id="cv-menu"
+          id={menuId}
           ref={menuRef}
           role="menu"
           onKeyDown={handleMenuKey}

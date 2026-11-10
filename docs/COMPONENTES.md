@@ -251,7 +251,7 @@ Barra: `w-20 h-1 bg-gradient-to-r from-blue-600 to-sky-400 rounded-full`.
 **Accesibilidad**
 
 - `aria-label` cambia: `"Activar modo claro"` / `"Activar modo oscuro"`.
-- `aria-pressed` es `true` cuando el tema es oscuro.
+- Sin `aria-pressed`: el `aria-label` ya describe la acción y combinarlos se anunciaba contradictorio.
 - Es un `<button type="button">`: Enter y Espacio lo activan.
 
 **Qué sí / qué no**
@@ -290,10 +290,10 @@ Barra: `w-20 h-1 bg-gradient-to-r from-blue-600 to-sky-400 rounded-full`.
 
 **Accesibilidad**
 
-- Botón: `aria-label="Descargar CV"`, `aria-expanded`, `aria-haspopup="menu"`, `aria-controls="cv-menu"`.
-- Menú: `id="cv-menu"`, `role="menu"`; cada enlace tiene `role="menuitem"` y atributo `download`.
-- Teclado: Escape cierra y devuelve el foco al botón; flecha abajo/arriba recorre los ítems de forma circular.
-- Al abrir el menú el foco no se mueve automáticamente a un ítem (el usuario usa Tab o las flechas).
+- Botón: `aria-label="Descargar CV"`, `aria-expanded`, `aria-haspopup="menu"`, `aria-controls` (id generado con `useId()`, único por instancia porque `CVDownload` se renderiza en escritorio y móvil).
+- Menú: `id` del `useId()`, `role="menu"`; cada enlace tiene `role="menuitem"` y atributo `download`.
+- Teclado: flecha abajo sobre el botón cerrado abre el menú; Escape cierra y devuelve el foco al botón; flecha abajo/arriba recorre los ítems de forma circular.
+- Al abrir el menú (clic o flecha abajo) el foco pasa al primer ítem.
 
 **Qué sí / qué no**
 
@@ -329,7 +329,7 @@ Barra: `w-20 h-1 bg-gradient-to-r from-blue-600 to-sky-400 rounded-full`.
 
 Enlaces actuales: `#about`, `#projects`, `#featured`, `#skills`, `#certifications`, `#music` (solo Footer) y `#contact`.
 
-`useActiveSection(ids: string[]): string | null`: recibe ids sin `#`; devuelve el id activo o `null`. Usa `IntersectionObserver` con `rootMargin: '-40% 0px -55% 0px'` (franja central del viewport). Si `IntersectionObserver` no existe, devuelve `null`.
+`useActiveSection(ids: string[]): string | null`: recibe ids sin `#`; devuelve el id activo o `null`. Usa `IntersectionObserver` con `rootMargin: '-40% 0px -55% 0px'` (franja central del viewport). Las secciones se cargan con lazy y aún no existen al montar el Header, así que un `MutationObserver` sobre `#root` añade al `IntersectionObserver` cada sección con id de la lista cuando aparece; ambos se desconectan al desmontar. Si `IntersectionObserver` no existe devuelve `null`; si falta `MutationObserver` solo observa las secciones ya presentes.
 
 **Variantes y tamaños.** No aplica.
 
@@ -422,6 +422,7 @@ import { cardHover } from './cardStyles';
 
 - Default: borde `gray-200` / `dark:white/10`.
 - Foco: `focus:ring-2 focus:ring-accent` (y `focus:border-transparent`).
+- Inválido (`aria-invalid="true"`): borde `border-red-500 dark:border-red-400` (variante `aria-[invalid=true]:`), que se mantiene junto al anillo de foco.
 - Disabled: `disabled:opacity-60` mientras se envía.
 - Error: mensaje bajo el campo (`text-sm text-red-500 dark:text-red-400`). El error del campo se limpia al escribir en él. Al fallar la validación el foco pasa al primer campo con error.
 - Enviando: el botón muestra `Enviando…` (`loading`).

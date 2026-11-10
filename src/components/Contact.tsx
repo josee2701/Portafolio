@@ -69,7 +69,7 @@ export default function Contact() {
     setErrors((prev) => ({ ...prev, [e.target.name]: undefined }));
   };
 
-  const inputClass = "w-full px-4 py-3 bg-white dark:bg-ink-800 border border-gray-200 dark:border-white/10 rounded-chip focus:ring-2 focus:ring-accent focus-visible:outline-none focus:border-transparent dark:text-white placeholder-gray-400 transition-all duration-200 text-sm disabled:opacity-60";
+  const inputClass = "w-full px-4 py-3 bg-white dark:bg-ink-800 border border-gray-200 dark:border-white/10 aria-[invalid=true]:border-red-500 dark:aria-[invalid=true]:border-red-400 rounded-chip focus:ring-2 focus:ring-accent focus-visible:outline-none focus:border-transparent dark:text-white placeholder-gray-400 transition-all duration-200 text-sm disabled:opacity-60";
   const labelClass = "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5";
 
   return (

@@ -42,7 +42,7 @@ export default function Skills() {
   return (
     <section id="skills" className="py-20 bg-white dark:bg-ink-900">
       <div className="container mx-auto px-6">
-        <SectionHeading eyebrow="// stack tecnológico" title="Skills y experiencia" />
+        <SectionHeading eyebrow="// stack tecnológico" title="Habilidades y experiencia" />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {Object.entries(skills).map(([category, categorySkills], catIndex) => (
