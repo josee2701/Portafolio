@@ -6,6 +6,8 @@ import { motion } from 'framer-motion';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import SectionHeading from './SectionHeading';
+import { cardHover } from './cardStyles';
 
 const projects = [
   {
@@ -44,31 +46,7 @@ export default function Projects() {
       viewport={{ once: true }}
     >
       <div className="container mx-auto px-6">
-        <motion.p
-          className="font-mono text-xs text-center text-accent mb-3"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          // lo que he construido
-        </motion.p>
-        <motion.h2
-          className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          Proyectos destacados
-        </motion.h2>
-        <motion.div
-          className="w-20 h-1 bg-gradient-to-r from-blue-600 to-sky-400 mx-auto mb-16 rounded-full"
-          initial={{ opacity: 0, scaleX: 0 }}
-          whileInView={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-        />
+        <SectionHeading eyebrow="// lo que he construido" title="Proyectos destacados" />
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -90,7 +68,7 @@ export default function Projects() {
           >
             {projects.map((project, index) => (
               <SwiperSlide key={index}>
-                <div className="bg-white dark:bg-ink-800 border border-transparent dark:border-white/10 rounded-card overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-2 hover:border-accent/40 transition-all duration-300 h-full flex flex-col">
+                <div className={cardHover}>
                   <div className="relative overflow-hidden h-48">
                     <img
                       src={project.image}
@@ -104,7 +82,7 @@ export default function Projects() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   <div className="p-6 flex flex-col flex-1">
-                    <h3 className="text-lg font-semibold mb-2 text-gray-800 dark:text-white leading-snug">
+                    <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white leading-snug">
                       {project.title}
                     </h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed flex-1">

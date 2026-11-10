@@ -6,6 +6,8 @@ import { motion } from 'framer-motion';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import SectionHeading from './SectionHeading';
+import { cardHover } from './cardStyles';
 
 const certifications = [
   {
@@ -70,31 +72,7 @@ export default function Certifications() {
       viewport={{ once: true }}
     >
       <div className="container mx-auto px-6">
-        <motion.p
-          className="font-mono text-xs text-center text-accent mb-3"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          // formación continua
-        </motion.p>
-        <motion.h2
-          className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          Certificaciones y logros
-        </motion.h2>
-        <motion.div
-          className="w-20 h-1 bg-gradient-to-r from-blue-600 to-sky-400 mx-auto mb-16 rounded-full"
-          initial={{ opacity: 0, scaleX: 0 }}
-          whileInView={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-        />
+        <SectionHeading eyebrow="// formación continua" title="Certificaciones y logros" />
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -116,7 +94,7 @@ export default function Certifications() {
           >
             {certifications.map((cert, index) => (
               <SwiperSlide key={index}>
-                <div className="bg-white dark:bg-ink-800 border border-transparent dark:border-white/10 rounded-card overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-2 hover:border-accent/40 transition-all duration-300 h-full flex flex-col">
+                <div className={cardHover}>
                   <div className="h-44 overflow-hidden bg-white">
                     <img
                       src={cert.image}
@@ -131,7 +109,7 @@ export default function Certifications() {
                   <div className="p-5 flex flex-col flex-1">
                     <div className="flex items-start gap-2 mb-2">
                       <Award className="text-accent flex-shrink-0 mt-0.5" size={18} />
-                      <h3 className="text-base font-semibold text-gray-800 dark:text-white leading-snug">
+                      <h3 className="text-base font-semibold text-gray-900 dark:text-white leading-snug">
                         {cert.title}
                       </h3>
                     </div>

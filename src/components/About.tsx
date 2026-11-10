@@ -1,5 +1,6 @@
 import { Code2, MonitorSpeaker, Server } from 'lucide-react';
 import { motion } from 'framer-motion';
+import SectionHeading from './SectionHeading';
 
 const stats = [
   { number: "3+", label: "Proyectos Completados" },
@@ -27,9 +28,9 @@ const areas = [
   },
   {
     icon: Code2,
-    iconBg: "bg-sky-100 dark:bg-sky-900/40",
-    iconColor: "text-sky-600 dark:text-sky-400",
-    borderHover: "hover:border-sky-500 hover:shadow-sky-500/10",
+    iconBg: "bg-accent/10",
+    iconColor: "text-accent",
+    borderHover: "hover:border-accent hover:shadow-accent/10",
     title: "Frontend Development",
     description: "Creación de interfaces responsive e interactivas con React y Vue.js, iniciándome en el mundo del front-end.",
   },
@@ -39,31 +40,7 @@ export default function About() {
   return (
     <section id="about" className="py-20 bg-white dark:bg-ink-900">
       <div className="container mx-auto px-6">
-        <motion.p
-          className="font-mono text-xs text-center text-accent mb-3"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          // lo que hago
-        </motion.p>
-        <motion.h2
-          className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          Áreas de trabajo
-        </motion.h2>
-        <motion.div
-          className="w-20 h-1 bg-gradient-to-r from-blue-700 to-sky-500 dark:from-blue-400 dark:to-sky-400 mx-auto mb-16"
-          initial={{ opacity: 0, scaleX: 0 }}
-          whileInView={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-        />
+        <SectionHeading eyebrow="// lo que hago" title="Áreas de trabajo" />
 
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {areas.map((area, index) => {
@@ -71,7 +48,7 @@ export default function About() {
             return (
               <motion.div
                 key={area.title}
-                className={`text-center p-6 rounded-card bg-white dark:bg-ink-800/60 border-2 border-gray-100 dark:border-white/10 shadow-sm hover:shadow-card ${area.borderHover} transition-all duration-300`}
+                className={`text-center p-6 rounded-card bg-white dark:bg-ink-800/60 border-2 border-gray-100 dark:border-white/10 shadow-card hover:shadow-card-hover ${area.borderHover} transition-all duration-300`}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
@@ -80,7 +57,7 @@ export default function About() {
                 <div className={`w-16 h-16 ${area.iconBg} rounded-full flex items-center justify-center mx-auto mb-6`}>
                   <Icon size={32} className={area.iconColor} />
                 </div>
-                <h3 className="text-xl font-semibold mb-3 text-gray-800 dark:text-white">{area.title}</h3>
+                <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">{area.title}</h3>
                 <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{area.description}</p>
               </motion.div>
             );
