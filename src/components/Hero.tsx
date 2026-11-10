@@ -1,4 +1,5 @@
 import { ArrowUpRight, MessageSquare } from 'lucide-react';
+import Button from './Button';
 import { motion } from 'framer-motion';
 
 export default function Hero() {
@@ -10,8 +11,8 @@ export default function Hero() {
     >
       {/* Rejilla técnica + glows de acento */}
       <div className="absolute inset-0 bg-grid opacity-70 dark:opacity-100" />
-      <div className="pointer-events-none absolute -top-24 -left-24 w-[28rem] h-[28rem] bg-sky-300/30 dark:bg-sky-500/10 rounded-full blur-3xl animate-blob" />
-      <div className="pointer-events-none absolute top-1/3 -right-24 w-[26rem] h-[26rem] bg-blue-400/20 dark:bg-blue-600/10 rounded-full blur-3xl animate-blob animation-delay-2000" />
+      <div className="pointer-events-none absolute -top-24 -left-24 w-blob-lg h-blob-lg bg-accent/15 dark:bg-accent/10 rounded-full blur-3xl animate-blob" />
+      <div className="pointer-events-none absolute top-1/3 -right-24 w-blob-md h-blob-md bg-accent/15 dark:bg-accent/10 rounded-full blur-3xl animate-blob animation-delay-2000" />
       <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white dark:from-ink-900 to-transparent" />
 
       <div className="container mx-auto px-6 py-28 relative z-10">
@@ -55,20 +56,14 @@ export default function Hero() {
             </p>
 
             <div className="mt-9 flex flex-wrap gap-4">
-              <a
-                href="#projects"
-                className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium text-white bg-gradient-to-r from-blue-600 to-sky-500 hover:shadow-glow hover:scale-[1.02] transition-all duration-300"
-              >
+              <Button href="#projects" className="group hover:scale-102">
                 Ver proyectos
                 <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
-              <a
-                href="#work"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium text-gray-800 dark:text-gray-100 border border-gray-300 dark:border-white/15 hover:border-accent hover:text-accent-strong transition-colors duration-300"
-              >
+              </Button>
+              <Button href="#work" variant="secondary">
                 <MessageSquare size={18} />
                 Trabajemos juntos
-              </a>
+              </Button>
             </div>
           </motion.div>
 
@@ -81,16 +76,16 @@ export default function Hero() {
           >
             <div className="relative">
               {/* Glow y anillo de acento detrás de la foto */}
-              <div className="absolute -inset-4 bg-gradient-to-tr from-blue-500/30 to-sky-400/20 rounded-[2rem] blur-2xl" />
-              <div className="relative rounded-[1.75rem] p-[2px] bg-gradient-to-tr from-blue-500 to-sky-400 shadow-2xl">
-                <div className="relative rounded-[1.65rem] overflow-hidden bg-ink-800">
+              <div className="absolute -inset-4 bg-gradient-to-tr from-blue-500/30 to-sky-400/20 rounded-photo-glow blur-2xl" />
+              <div className="relative rounded-photo-frame p-frame bg-gradient-to-tr from-blue-500 to-sky-400 shadow-2xl">
+                <div className="relative rounded-photo-inner overflow-hidden bg-ink-800">
                   <img
                     src="/Gallery/Perfil.webp"
                     alt="Retrato de Jose Campos, desarrollador backend"
                     width={768}
                     height={1344}
                     fetchPriority="high"
-                    className="w-full h-auto max-h-[30rem] object-cover object-top"
+                    className="w-full h-auto max-h-photo object-cover object-top"
                   />
                   {/* Degradado inferior para legibilidad de la tira */}
                   <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-ink-950/95 to-transparent" />
