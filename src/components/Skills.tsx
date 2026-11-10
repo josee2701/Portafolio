@@ -4,9 +4,10 @@ import {
   SiDjango, SiFastapi, SiPostgresql, SiMysql,
   SiReact, SiTailwindcss,
   SiGit, SiDocker, SiLinux,
-  SiClaude, SiOpenai,
+  SiClaude,
 } from 'react-icons/si';
 import { VscAzure } from 'react-icons/vsc';
+import { BsOpenai } from 'react-icons/bs'; // react-icons 5.7 retiró SiOpenai
 import SectionHeading from './SectionHeading';
 
 type Skill = { name: string; icon: React.ComponentType<{ className?: string }>; color: string };
@@ -34,7 +35,7 @@ const skills: Record<string, Skill[]> = {
   ],
   'IA & Herramientas': [
     { name: 'Claude', icon: SiClaude, color: 'text-orange-400' },
-    { name: 'ChatGPT', icon: SiOpenai, color: 'text-teal-300' },
+    { name: 'ChatGPT', icon: BsOpenai, color: 'text-teal-300' },
   ],
 };
 

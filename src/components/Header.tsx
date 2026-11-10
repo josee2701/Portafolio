@@ -1,4 +1,5 @@
-import { Github, Linkedin, Mail, Menu, X } from 'lucide-react';
+import { Mail, Menu, X } from 'lucide-react';
+import { FiGithub as Github, FiLinkedin as Linkedin } from 'react-icons/fi'; // lucide 1.x retiró los iconos de marca
 import { useEffect, useRef, useState } from 'react';
 import { useActiveSection } from '../hooks/useActiveSection';
 import { navLinks } from '../navLinks';

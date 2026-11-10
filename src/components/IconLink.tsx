@@ -1,9 +1,9 @@
-import type { LucideIcon } from 'lucide-react';
+import type { ComponentType } from 'react';
 
 interface IconLinkProps {
   href: string;
   'aria-label': string;
-  icon: LucideIcon;
+  icon: ComponentType<{ size?: number | string }>; // lucide o react-icons
   size?: number;
 }
 

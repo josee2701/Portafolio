@@ -1,4 +1,5 @@
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
+import { FiGithub as Github } from 'react-icons/fi'; // lucide 1.x retiró los iconos de marca
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { m } from 'framer-motion';

@@ -8,12 +8,15 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
   build: {
-    rollupOptions: {
+    // Vite 8 (Rolldown): manualChunks en forma de objeto ya no existe
+    rolldownOptions: {
       output: {
-        manualChunks: {
-          'vendor-react': ['react', 'react-dom'],
-          'vendor-swiper': ['swiper', 'swiper/react', 'swiper/modules'],
-          'vendor-toastify': ['react-toastify'],
+        codeSplitting: {
+          groups: [
+            { name: 'vendor-react', test: /node_modules[\\/](react|react-dom|scheduler)[\\/]/ },
+            { name: 'vendor-swiper', test: /node_modules[\\/]swiper[\\/]/ },
+            { name: 'vendor-toastify', test: /node_modules[\\/]react-toastify[\\/]/ },
+          ],
         },
       },
     },
