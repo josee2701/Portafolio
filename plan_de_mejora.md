@@ -1,158 +1,67 @@
-# Plan de Mejora — Portafolio Jose Campos (v2)
+# Plan de Mejora — Portafolio Jose Campos (v3)
+
+> Actualizado el 2026-11-10 tras una auditoría del repositorio. Las tareas de la v2 que ya no aplican se marcan como resueltas u obsoletas.
 
 ---
 
-## Estado actual de los cambios implementados
+## 1. Auditoría 2026-11-10 — pendientes
 
-| Componente | Estado |
-|------------|--------|
-| `Hero.tsx` | Rediseñado con blobs, gradiente, botón mejorado |
-| `About.tsx` | Cards con glassmorphism, hover border, animaciones framer-motion |
-| `Projects.tsx` | Imagen h-48 object-cover, hover lift, gradient title |
-| `Skills.tsx` | Animaciones y hover border — SVG paths incorrectos (bug activo) |
-| `Stats.tsx` | Creado — posición incorrecta (sección separada, debería estar dentro de About) |
-| `WaveDivider.tsx` | Creado — se renderiza como linea roja, no funciona visualmente |
-| `App.tsx` | Lazy loading implementado |
+Orden por importancia. Los números sirven para referirse a cada punto.
 
----
+| # | Prioridad | Tarea | Archivo | Estado |
+|---|-----------|-------|---------|--------|
+| A1 | Debe corregirse | La página queda en blanco si el navegador bloquea el almacenamiento | `src/context/ThemeContext.tsx` | Hecho |
+| A2 | Conviene corregirlo | Quitar `React` del import no usado (el `tsc` fallaba) | `src/App.tsx` | Hecho |
+| A3 | Conviene corregirlo | Timeout de 15 s y error correcto cuando la respuesta no es JSON | `src/components/Contact.tsx` | Hecho |
+| A4 | Conviene corregirlo | Plantilla eliminada: `.bolt/` borrado, README reescrito, paquete renombrado a `portafolio-jose-campos` | `README.md`, `.bolt/`, `package.json` | Hecho |
+| A5 | Opcional | "JavaScript" duplicado en habilidades: se quitó de Frontend y queda en Lenguajes | `src/components/Skills.tsx` | Hecho |
+| A6 | Opcional | "Demo en vivo" del proyecto de correos quitado (apuntaba a una API) | `src/components/Projects.tsx` | Hecho |
 
-## 1. Bugs activos a corregir (prioridad inmediata)
+**Ahorro estimado:** −224 líneas (documentación y archivos sobrantes). Ninguna dependencia se puede quitar: `react-icons` aporta los logos de Spotify, Azure y las habilidades.
 
-### 1.1 SkillIcons.tsx — SVG paths incorrectos
-Los paths SVG del archivo SkillIcons.tsx no corresponden a los logos reales:
-- GitIcon usa el path del logo de Twitter/X (M23.953 4.57...)
-- PythonIcon, DockerIcon, PostgreSQLIcon, ReactIcon, AzureIcon, LinuxIcon tienen paths genericos o inventados
-
-Solucion: reemplazar todos los SVG por los paths correctos de Simple Icons (simpleicons.org) para cada tecnologia.
-
-### 1.2 WaveDivider — se renderiza como linea roja
-El componente usa fill="currentColor" con text-white, pero hay un conflicto de color heredado que lo hace visible como una linea roja.
-
-Solucion: eliminar todos los WaveDivider de App.tsx. Son decorativos y generan problemas visuales. Se reemplazaran con separacion por padding entre secciones.
-
-### 1.3 Stats — posicion incorrecta en el layout
-Stats vive como seccion independiente entre Hero y About. El link "Info" del navbar lleva a #about pero las estadisticas quedan en una seccion separada sin ancla de navegacion.
-
-Solucion:
-1. Eliminar Stats y WaveDivider de App.tsx como secciones separadas
-2. Integrar el contenido de estadisticas dentro de About.tsx, debajo de las 3 cards
-3. Eliminar el archivo Stats.tsx
-4. El id="about" existente en la seccion cubre todo el bloque
-
-### 1.4 Bugs originales pendientes
-- Favicon: index.html linea 5 — cambiar href="public/Gallery/logo192.png" a href="/Gallery/logo192.png"
-- Telefono: Contact.tsx linea 158 — cambiar type="number" a type="tel"
-- Dependencia idb sin usar — ejecutar npm uninstall idb
+**Pendiente de revisar fuera del repo:** el backend de Render (validación y protección contra spam). Su código no está en este repositorio.
 
 ---
 
-## 2. Paleta de colores — cambio de indigo/morado a azul oscuro
+## 2. Estado de la v2
 
-Problema actual: el portafolio usa indigo-600 + purple-600 como colores principales, generando tonos morados que no gustan.
-
-Nueva paleta — azul oscuro como base con contraste en azul claro/cyan:
-
-| Token | Clase Tailwind | Uso |
-|-------|---------------|-----|
-| Primary dark | blue-900 | Fondos de secciones destacadas, Stats |
-| Primary mid | blue-700 | Botones, acentos principales |
-| Primary light | sky-400 | Highlights, hovers, segundo color de gradiente |
-| Accent | cyan-400 | Detalles, badges, iconos activos |
-| Text en dark bg | blue-100 | Labels sobre fondo azul oscuro |
-
-Reemplazos globales en todos los componentes:
-- from-indigo-600 to-purple-600 → from-blue-700 to-sky-500
-- dark:from-indigo-400 dark:to-purple-400 → dark:from-blue-400 dark:to-sky-400
-- indigo-600 suelto → blue-700
-- indigo-500 en hovers → sky-500
-- Stats section background: from-blue-900 to-blue-700
-
-Archivos afectados: Hero.tsx, About.tsx, Projects.tsx, Skills.tsx, Certifications.tsx, Contact.tsx, Stats (contenido que va a About), Footer.tsx, index.css
+| Tarea de la v2 | Estado | Verificado en |
+|----------------|--------|---------------|
+| 1.1 Paths SVG incorrectos en `SkillIcons.tsx` | Obsoleto: el archivo ya no existe. Los logos vienen de `react-icons` | `src/components/` |
+| 1.2 `WaveDivider` se ve como línea roja | Resuelto: el componente ya no existe | `src/components/` |
+| 1.3 `Stats` fuera de lugar | Resuelto: las estadísticas están dentro de `About.tsx` y `Stats.tsx` se eliminó | `src/components/About.tsx` |
+| 1.4 Favicon con ruta `public/...` | Resuelto: ahora es `/Gallery/logo192.png` | `index.html` |
+| 1.4 `type="number"` en el teléfono | Resuelto: ahora es `type="tel"` | `src/components/Contact.tsx` |
+| 1.4 Dependencia `idb` sin usar | Resuelto: ya no está en `package.json` | `package.json` |
+| 2. Paleta indigo/morado a azul oscuro | Resuelto: no queda ninguna clase `indigo` ni `purple` en el código | `src/` |
+| 3.1 Estadísticas dentro de About | Resuelto | `src/components/About.tsx` |
+| 3.2 Sección de música con Spotify | Resuelto: `SpotifyPlayer.tsx` con la playlist embebida | `src/components/SpotifyPlayer.tsx` |
+| 3.3 Footer rediseñado en 3 columnas | Resuelto | `src/components/Footer.tsx` |
+| 3.4 Transición suave dark/light | Resuelto: hay una regla `transition` en `index.css` | `src/index.css:7` |
+| 5. Pendiente del usuario (URL de la playlist y título) | Resuelto: la playlist y el título ya están en el código | `src/components/SpotifyPlayer.tsx` |
 
 ---
 
-## 3. Mejoras visuales por seccion
-
-### 3.1 About — integrar Stats dentro
-Estructura de la seccion despues del cambio:
-
-  [ Titulo "Areas de trabajo" ]
-  [ 3 cards: Backend | Developer | Frontend ]
-  -----------------------------------------------
-  [ franja azul oscuro con estadisticas ]
-  [ 3+ Proyectos | 7 Cert. | 2+ Anos | 8+ Techs ]
-
-La franja de stats usa blue-900 como fondo para crear contraste visual dentro de la misma seccion, manteniendo el id="about" como ancla del navbar.
-
-### 3.2 Seccion de musica con Spotify (nueva)
-Componente nuevo: SpotifyPlayer.tsx
-Ubicacion en App.tsx: entre Certifications y Contact
-
-Implementacion con embed publico (sin OAuth, sin API key):
-
-  iframe src="https://open.spotify.com/embed/playlist/ID?utm_source=generator&theme=0"
-  width="100%" height="352" frameBorder="0" allowFullScreen
-  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-  loading="lazy"
-
-- El usuario proporciona la URL de su playlist de Spotify
-- theme=0 usa el tema oscuro del player nativo de Spotify
-- Titulo de la seccion sugerido: "Mi musica mientras codifico"
-- Sin dependencias adicionales
-
-PENDIENTE DEL USUARIO: compartir URL de su playlist de Spotify antes de implementar.
-
-### 3.3 Footer — rediseno completo
-Problema actual: demasiado minimalista, solo nombre + 3 iconos sociales. Se ve incompleto.
-
-Diseno propuesto — 3 columnas en desktop, una columna en mobile:
-
-  Columna 1 — Identidad:
-    Jose Campos
-    Ingeniero de Sistemas
-    Descripcion corta (1-2 lineas)
-
-  Columna 2 — Navegacion:
-    Info | Proyectos | Skills | Certificaciones | Contacto
-    (links de scroll interno)
-
-  Columna 3 — Redes sociales:
-    GitHub, LinkedIn, Email con iconos y texto
-
-  Franja inferior:
-    Hecho con React + Vite | c 2026 Jose Campos. All rights reserved.
-
-Cambios tecnicos:
-- Layout grid-cols-3 en desktop, flex-col en mobile
-- Fondo blue-950 (azul muy oscuro) para contraste fuerte
-- Agregar descripcion corta en columna izquierda
-- Links de navegacion funcionales dentro del footer
-
-### 3.4 Transicion suave dark/light
-No implementado aun. Agregar en index.css:
-
-  html {
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
----
-
-## 4. Orden de implementacion recomendado
+## 3. Próximos pasos
 
 | # | Tarea | Impacto | Tiempo est. |
 |---|-------|---------|-------------|
-| 1 | Eliminar WaveDivider de App.tsx | Elimina bug visual critico | 10 min |
-| 2 | Fix SVG paths en SkillIcons.tsx | Elimina iconos incorrectos | 45 min |
-| 3 | Integrar Stats dentro de About.tsx + eliminar Stats.tsx | Corrige navegacion | 20 min |
-| 4 | Cambiar paleta a azul oscuro en todos los componentes | Identidad visual nueva | 45 min |
-| 5 | Rediseno Footer (3 columnas, blue-950) | Visual + profesionalismo | 30 min |
-| 6 | Transicion suave dark/light en index.css | UX | 5 min |
-| 7 | Fix favicon + phone type="tel" + npm uninstall idb | Bugs | 10 min |
-| 8 | Nueva seccion SpotifyPlayer (requiere URL playlist) | Diferenciador visual | 30 min |
+| 1 | A1 a A6 | Todo hecho el 2026-11-10 (ver sección 1) | — |
+| 2 | Pendiente del dueño: el repo de `despertador_novia` debe ser público para que el enlace de GitHub del caso destacado funcione | Enlace roto si es privado | 1 min |
+| 3 | Pendiente: la paleta usa `blue` y `sky` para el mismo acento; unificar en un token `brand` | Coherencia visual | 1 h |
+| 4 | Pendiente: escala de radios y sombras para tarjetas | Consistencia | 1 h |
 
 ---
 
-## 5. Pendiente del usuario
+## 4. Cambios del 2026-11-10: caso destacado y accesibilidad
 
-- Confirmar URL de playlist de Spotify para el player embed
-- Confirmar texto o titulo preferido para la seccion de musica
+**Hecho:**
+- Nuevo apartado compacto `ProyectoDestacado.tsx` (Bella Durmiente), después del Hero, con enlace de descarga a Google Play y tres capturas.
+- Imágenes en `public/Gallery/despertador/` (WebP, convertidas desde `despertador_novia/play_store/`).
+- Accesibilidad: `aria-label` en los iconos del header (escritorio y móvil), foco visible global (`:focus-visible` en `index.css`), el menú del CV se cierra con Escape.
+- CV renombrados a `public/cv/cv-en.pdf` y `public/cv/cv-es.pdf`. Los enlaces de `CVDownload.tsx` ya apuntan a los nombres nuevos.
+- Verificación: `tsc -b` y `npm run build` pasan. ESLint sobre `src/` sin errores.
+
+**Pendiente de decidir:**
+- Las capturas de `play_store/` son mockups de marketing con texto superpuesto, no capturas limpias. Si quieres capturas de pantalla reales, hay que sacarlas en un dispositivo.
+- Los textos de "Próximas mejoras" salen de `CLAUDE.md` del repo de la app (sección 12). Si cambian los planes, actualiza `ProyectoDestacado.tsx`.
