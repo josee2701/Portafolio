@@ -22,7 +22,6 @@ const projects = [
     image: "/Gallery/django-fasapi-gmail.webp",
     technologies: ["Django", "Gmail", "REST APIs", "Render", "PostgreSQL"],
     githubUrl: "https://github.com/josee2701/Envio-Correos",
-    liveUrl: "https://backend-yw41.onrender.com/from_contact/",
   },
   {
     title: "Portafolio CV Inicial",
@@ -46,7 +45,7 @@ export default function Projects() {
     >
       <div className="container mx-auto px-6">
         <motion.p
-          className="font-mono text-xs text-center text-sky-600 dark:text-sky-400 mb-3"
+          className="font-mono text-xs text-center text-accent mb-3"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
@@ -91,7 +90,7 @@ export default function Projects() {
           >
             {projects.map((project, index) => (
               <SwiperSlide key={index}>
-                <div className="bg-white dark:bg-ink-800 border border-transparent dark:border-white/10 rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-2 hover:border-sky-400/40 transition-all duration-300 h-full flex flex-col">
+                <div className="bg-white dark:bg-ink-800 border border-transparent dark:border-white/10 rounded-card overflow-hidden shadow-md hover:shadow-xl hover:-translate-y-2 hover:border-accent/40 transition-all duration-300 h-full flex flex-col">
                   <div className="relative overflow-hidden h-48">
                     <img
                       src={project.image}
@@ -126,20 +125,22 @@ export default function Projects() {
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-700 dark:hover:text-sky-400 transition-colors"
+                        className="flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400 hover:text-accent-strong transition-colors"
                       >
                         <Github size={16} />
                         Código
                       </a>
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-700 dark:hover:text-sky-400 transition-colors"
-                      >
-                        <ExternalLink size={16} />
-                        Demo en vivo
-                      </a>
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400 hover:text-accent-strong transition-colors"
+                        >
+                          <ExternalLink size={16} />
+                          Demo en vivo
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
